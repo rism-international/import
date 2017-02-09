@@ -1,6 +1,13 @@
 ---
+# Siglum CZ-Bu in all cases?
+# correct leader
+# add 852 datafield with siglum, probably from 910, siglum: 
+# add url for the original entry
+# how about linkage between collection and entry
+# sf $3 for linkage?
+# url see eg https://vufind.mzk.cz/Record/MZK01-001258266
 "*MAX": 1517034 ()
-'001': 2083 (000011049)
+'001': 2083 (000011049) # create new id and move this to relating subfield
 '003': 2083 (CZ BrMZK)
 '005': 2083 (20160503114202.0)
 '007': 2050 (qu)
@@ -9,9 +16,9 @@
 020$q: 8 ((Brož.))
 028$a: 1 (MH 6418/c)
 031$2: 2810 (pe)
-031$a: 2836 (01)
-031$b: 2834 (01)
-031$c: 2833 (01)
+031$a: 2836 (01) # remove leading zero
+031$b: 2834 (01) # remove leading zero
+031$c: 2833 (01) # remove leading zero
 031$d: 2321 (Allegro con poco spirituoso)
 031$g: 2834 (G-2)
 031$m: 2808 (vl 1)
@@ -38,34 +45,34 @@
 080$2: 6898 (MRF)
 080$a: 6910 (787.1/.4:785.75)
 100$4: 1984 (cmp)
-100$7: 1900 (jn19990010027)
-100$a: 1971 (Vranický, Pavel,)
+100$7: 1900 (jn19990010027) # what is this?
+100$a: 1971 (Vranický, Pavel,) # remove closing comma
 100$c: 35 (skladatel)
 100$d: 1844 (1756-1808)
-100$q: 2 ((Jean Baptiste),)
+100$q: 2 ((Jean Baptiste),) # what is this?
 240$7: 4 (aun2010609434)
-240$a: 207 (Kvintety,)
+240$a: 207 (Kvintety,) # remove closing comma
 240$c: 1 (moll)
 240$m: 151 (housle (2), violy (2), violoncello,)
-240$n: 125 (č. 1, op. 11)
+240$n: 125 (č. 1, op. 11) # where to go?
 240$o: 4 (arr.)
 240$p: 17 (Zwischenspiel)
 240$r: 45 (C dur)
 245$a: 2083 (Smyčcový kvintet op. 11, č. 1, 2, 3)
-245$b: '1352 (sborová partitura : [na texty lidové poesie] /)'
+245$b: '1352 (sborová partitura : [na texty lidové poesie] /)' # probably this shoud be $a
 245$c: 1940 (Pavel Vranický)
-245$h: 2082 ([rukopis] /)
+245$h: 2082 ([rukopis] /) # material description 
 245$n: 186 (Č. 1)
 245$p: 14 (Smyčcový kvartet, op. 7 č. 5-6)
 246$a: 117 (Trois Quintetti pour deux Violons, deux Altos & Violoncelle)
 246$i: 2 (Název na hlasech:)
-250$a: 2 (Du bist der König aller Sphären-)
-254$a: 9 (Partitura)
+250$a: 2 (Du bist der König aller Sphären-) # where to go?
+254$a: 9 (Partitura) # material
 260$a: 4 ([Brno :)
 260$b: 1 (s. n.,)
 260$c: 2082 (1994)
 264$c: 1 ([1982?])
-300$3: 1 (3 cm)
+300$3: 1 (3 cm) # material linkage in $3?
 300$a: 2084 (16, 21, 26 s. ;)
 300$b: 1 (32 cm)
 300$c: 2008 (35 cm)
@@ -80,7 +87,7 @@
 338$2: 1 (rdacarrier)
 338$a: 1 (svazek)
 338$b: 1 (nc)
-340$d: 1 (Rukopis)
+340$d: 1 (Rukopis) # material description
 500$a: 3824 (Rukopisná spartace díla Trois Quintetti pour deux Violons, deux Altos
   et Basse)
 501$a: '11 (Obsahuje: Přívazek, Air / J.S. Bach)'
@@ -118,7 +125,7 @@
 700$3: 1 (lyr)
 700$4: 1379 (aut)
 700$7: 1319 (mzk2010606572)
-700$a: 1522 (Petrtýl, Josef,)
+700$a: 1522 (Petrtýl, Josef,) # remove closing comma
 700$c: 4 (hudební rukopis)
 700$d: 1372 (1924-2002)
 700$l: 1 (lyr)
@@ -132,14 +139,14 @@
 740$a: 90 (O salutaris hostia)
 772$t: 1 (Česká hudba)
 787$a: 2 (Overteur, No 8)
-787$g: 282 (Skř.17-0525.588)
+787$g: 282 (Skř.17-0525.588) # shelfmark?'
 787$i: 279 (Mikrofilmová předloha :)
 787$t: 279 (Trois Quintetti, I Livre de Quintetti)
 856$u: 4919 (http://audioserver.mzk.cz/incipity/png/000011049_01_01_01.png)
 856$y: 4919 (Zobrazení hudebního incipitu)
 856$z: 1 (titulní list)
-910$a: 2083 (BOA001)
-910$b: 2083 (RKPMus-1001.853)
+910$a: 2083 (BOA001) # internal siglum
+910$b: 2083 (RKPMus-1001.853) #hselfmark?
 964$a: 29 (Kvintety smyčcové)
 964$x: 36 (HUD)
 964$z: 1 (stol.20.,pol.2.)
