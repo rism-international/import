@@ -1,2 +1,3 @@
-/muscat
+muscat/
 *.xml
+import_db.sql
