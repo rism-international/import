@@ -19,7 +19,7 @@ module Marcxml
       @node = node
       @methods = [:map, :fix_id, :change_leader, :change_collection, :change_attribution, :prefix_performance,
                   :split_730, :change_243, :change_593_abbreviation, :change_009, :add_siglum, 
-                  :concat_personal_name, :add_original_entry, :add_material_layer]
+                  :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros]
       #:insert_773_ref, 
     end
 
@@ -36,9 +36,23 @@ module Marcxml
       #links.each {|link| link.content = link.content.gsub("(OCoLC)", "1")}
     end
 
+    def fix_incipit_zeros
+      codes = %w(a b c)
+      incipits = node.xpath("//marc:datafield[@tag='031']", NAMESPACE)
+      incipits.each do |incipit|
+        codes.each do |code|
+          binding.pry
+          sf = incipit.xpath("marc:subfield[@code='#{code}']", NAMESPACE).first rescue nil
+          if sf && sf.content
+            sf.content = sf.content.sub(/^0/, "")
+          end
+        end
+      end
+
+    end
+
     def add_original_entry
       oce = node.xpath("//marc:controlfield[@tag='003']", NAMESPACE).first rescue nil
-      binding.pry
       if oce
         tag = Nokogiri::XML::Node.new "datafield", node
         tag['tag'] = '856'

@@ -71,7 +71,7 @@ if source_file
         end
         doc = Nokogiri::XML "<record></record>"
         leader = Nokogiri::XML::Node.new "leader", doc
-        leader.content="00000ndm a2200000   4500"
+        leader.content="00000ndd a2200000   4500"
         doc.root << leader
  
         id_field = Nokogiri::XML::Node.new "controlfield", doc
