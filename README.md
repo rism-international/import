@@ -12,7 +12,7 @@ Field list accorinding to the OPAC index fields
 - Genre 650$a
 - Work catalogue number 383$b, 240$n
 - Provenance 561$a
-- Type of material 5934a
+- Type of material 593$a
 - Watermark 592$a
 - Liturgical feast 657$a
 - Scoring 240$m
