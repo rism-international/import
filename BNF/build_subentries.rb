@@ -53,6 +53,7 @@ if source_file
   xmlstream.header unless (opts[:analyze] || opts[:report])
   xmlstream.each_record(source_file) do |record|
     isn = record.xpath('//marc:controlfield[@tag="001"]', NAMESPACE)[0].content rescue next
+    oce = record.xpath('//marc:controlfield[@tag="003"]', NAMESPACE)[0].content rescue nil
     refs=record.xpath("//*[@code='9']", NAMESPACE)
     unless refs.empty?
       subs = Hash.new([])
@@ -88,18 +89,23 @@ if source_file
         sfa.content = isn
         tag << sfa
         doc.root << tag
-        
-        tag = Nokogiri::XML::Node.new "datafield", doc
-        tag['tag'] = '852'
-        tag['ind1'] = ' '
-        tag['ind2'] = ' '
-        sfa = Nokogiri::XML::Node.new "subfield", doc
-        sfa['code'] = 'a'
-        sfa.content = "F-Pn"
-        tag << sfa
-        doc.root << tag
-        
-
+       
+        if oce
+          tag = Nokogiri::XML::Node.new "datafield", doc
+          tag['tag'] = '856'
+          tag['ind1'] = ' '
+          tag['ind2'] = ' '
+          sfu = Nokogiri::XML::Node.new "subfield", doc
+          sfu['code'] = 'u'
+          sfu.content = oce
+          tag << sfu
+          sfz = Nokogiri::XML::Node.new "subfield", doc
+          sfz['code'] = 'z'
+          sfz.content = "Original catalogue entry"
+          tag << sfz
+          doc.root << tag
+        end
+ 
 
 
 
