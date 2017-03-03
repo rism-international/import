@@ -1,6 +1,11 @@
 # Muscat Import
 This repository contains all related programs and data for importing external resourses.
 
+## Tasks
+- Renumbering
+- Linkage between collection/individual entry
+- Map existing to core field list
+
 ## Core field list
 Field list accorinding to the OPAC index fields
 - ID 001
