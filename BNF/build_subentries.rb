@@ -45,7 +45,7 @@ total = 10000
 bar = ProgressBar.create(title: "Found", :format => "%c of %C Records parsed. -- %a | %B | %p%% %e".yellow, total: total, remainder_mark: '-', progress_mark: '#')
 
 result = {}
-max = 10001
+max = 840020000
 if source_file
   cnt = 1
   #Start reading stream

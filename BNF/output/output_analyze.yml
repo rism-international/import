@@ -1,6 +1,6 @@
 ---
-"*MAX": 21349 ()
-'001': 20391 (1)
+"*MAX": 840031348 ()
+'001': 20391 (840010000)
 '003': 9042 (http://catalogue.bnf.fr/ark:/12148/cb395786533)
 008$a: 9042 (19910419d1694    u  y0frey50      ba)
 010$b: 2 (En blanc)
@@ -141,7 +141,7 @@
 710$a: 546 (Intendance des Menus-Plaisirs et affaires de la Chambre du roi)
 710$c: 200 (Vienne)
 710$o: 420 (ISNI0000000121918820)
-773$w: 11349 (2)
+773$w: 11349 (840010001)
 852$5: 9864 (FR-751021003:VM1-933)
 852$a: 9864 (F-Pn)
 852$v: 312 (Iphigénie)

@@ -47,7 +47,7 @@ bar = ProgressBar.create(title: "Found", :format => "%c of %C Records parsed. --
 result = {}
 binding.pry
 if source_file
-  cnt = 1
+  cnt = 840010000
   #Start reading stream
   xmlstream = Marcxml::Xmlstream.new(ofile)
   xmlstream.each_record(source_file) do |record|
