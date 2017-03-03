@@ -10,8 +10,9 @@ module Marcxml
     include Logging
     @refs = {}
     @ids = YAML.load_file("/home/dev/projects/import/BNF/id.yml")
+    @relator_codes = YAML.load_file("/home/dev/projects/marcxml-tools/lib/unimarc_relator_codes.yml")
     class << self
-      attr_accessor :refs, :ids
+      attr_accessor :refs, :ids, :relator_codes
     end
     attr_accessor :node, :namespace, :methods
     def initialize(node, namespace={'marc' => "http://www.loc.gov/MARC21/slim"})
@@ -19,9 +20,18 @@ module Marcxml
       @node = node
       @methods = [:map, :fix_id, :change_leader, :change_collection, :change_attribution, :prefix_performance,
                   :split_730, :change_243, :change_593_abbreviation, :change_009, :add_siglum, 
-                  :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros]
+                  :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes]
       #:insert_773_ref, 
     end
+
+    def change_relator_codes
+      px = node.xpath("//marc:subfield[@code='4']", NAMESPACE)
+      px.each do |p|
+        p.content = BNF.relator_codes[p.content]
+      end
+
+    end
+
 
     def fix_id
       controlfield = node.xpath("//marc:controlfield[@tag='001']", NAMESPACE).first
