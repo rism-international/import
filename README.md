@@ -3,6 +3,9 @@ This repository contains all related programs and data for importing external re
 
 ## Core field list
 Field list accorinding to the OPAC index fields
+- ID 001
+- local ID 035$a
+- Original entry 856$u/z
 - Title 240$m/031$t
 - People 100/700
 - Institutions 710
