@@ -81,7 +81,7 @@
 338$a: 1 (svazek)
 338$b: 1 (nc)
 340$d: 1 (Rukopis)
-500$a: 5907 (Rukopisná spartace díla Trois Quintetti pour deux Violons, deux Altos
+500$a: 3824 (Rukopisná spartace díla Trois Quintetti pour deux Violons, deux Altos
   et Basse)
 501$a: '11 (Obsahuje: Přívazek, Air / J.S. Bach)'
 505$a: 13 (Vlasti / slova od Vlka, hudba od Tovačovského -- Rozloučení / J. Knahl)
@@ -137,8 +137,8 @@
 787$t: 279 (Trois Quintetti, I Livre de Quintetti)
 852$a: 2083 (CZ-Bu)
 852$c: 2083 (RKPMus-1001.853)
-856$u: 4919 (http://audioserver.mzk.cz/incipity/png/000011049_01_01_01.png)
-856$z: 4920 (Zobrazení hudebního incipitu)
+856$u: 7002 (http://audioserver.mzk.cz/incipity/png/000011049_01_01_01.png)
+856$z: 7003 (Zobrazení hudebního incipitu)
 910$a: 2083 (BOA001)
 910$b: 2083 (RKPMus-1001.853)
 964$a: 29 (Kvintety smyčcové)

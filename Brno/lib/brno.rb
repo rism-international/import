@@ -45,13 +45,17 @@ module Marcxml
     def insert_original_entry
       id = node.xpath("//marc:controlfield[@tag='001']", NAMESPACE)[0].content
       tag = Nokogiri::XML::Node.new "datafield", node
-      tag['tag'] = '500'
+      tag['tag'] = '856'
       tag['ind1'] = ' '
       tag['ind2'] = ' '
       sfa = Nokogiri::XML::Node.new "subfield", node
-      sfa['code'] = 'a'
-      sfa.content = "Original catalogue entry: https://vufind.mzk.cz/Record/MZK01-#{id}"
+      sfa['code'] = 'u'
+      sfa.content = "https://vufind.mzk.cz/Record/MZK01-#{id}"
       tag << sfa
+      sfz = Nokogiri::XML::Node.new "subfield", node
+      sfz['code'] = 'z'
+      sfz.content = "Original catalogue entry"
+      tag << sfz
       node.root << tag
     end
     

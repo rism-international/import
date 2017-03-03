@@ -1,17 +1,17 @@
 #!/bin/bash
-
+IMPORT="Moravian"
 ACTUAL=$PWD
 BIN="/home/dev/projects/marcxml-tools"
-INPUT="/home/dev/projects/import/Moravian/input/input.xml"
-OUTPUT="/home/dev/projects/import/Moravian/output/output.xml"
-ANALYZE="/home/dev/projects/import/Moravian/output/output_analyze.yml"
+INPUT="/home/dev/projects/import/$IMPORT/input/input.xml"
+OUTPUT="/home/dev/projects/import/$IMPORT/output/output.xml"
+ANALYZE="/home/dev/projects/import/$IMPORT/output/output_analyze.yml"
 
-
-echo "Convert Moravian"
+echo "Convert $IMPORT"
 cd $BIN
-#ruby marcxml --transform -i $INPUT -c conf/moravian.yaml -o $OUTPUT
-#ruby marcxml --analyze -i $OUTPUT -o $ANALYZE --with-content
-#ruby marcxml --analyze -i $INPUT -o $ACTUAL/input/input_analyze.yml --with-content
+ruby marcxml --transform -i $INPUT -c conf/$IMPORT.yaml -o $OUTPUT
+ruby marcxml --analyze -i $OUTPUT -o $ANALYZE --with-content
 
 cd $ACTUAL/muscat
 rails r housekeeping/import/import_from_marc.rb $ACTUAL/output/output.xml Source
+#ruby marcxml --analyze -i $INPUT -o $ACTUAL/input/input_analyze.yml --with-content
+

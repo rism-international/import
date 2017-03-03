@@ -1,21 +1,22 @@
 #!/bin/bash
 
+IMPORT="BNF"
 ACTUAL=$PWD
 BIN="/home/dev/projects/marcxml-tools"
-INPUT="/home/dev/projects/import/BNF/input/input.xml"
-OUTPUT="/home/dev/projects/import/BNF/output/output.xml"
-ANALYZE="/home/dev/projects/import/BNF/output/output_analyze.yml"
+INPUT="/home/dev/projects/import/$IMPORT/input/input.xml"
+OUTPUT="/home/dev/projects/import/$IMPORT/output/output.xml"
+ANALYZE="/home/dev/projects/import/$IMPORT/output/output_analyze.yml"
 
-echo "Build subentries"
+#echo "Build subentries"
 #ruby build_ids.rb -i input/unimarc_input.xml -o id.yml
 #ruby build_subentries.rb -i input/unimarc_input.xml -o input/input.xml
 
-
-echo "Convert BNF"
+echo "Convert $IMPORT"
 cd $BIN
-#ruby marcxml --transform -i $INPUT -c conf/bnf.yaml -o $OUTPUT
-#ruby marcxml --analyze -i $OUTPUT -o $ANALYZE --with-content
-#ruby marcxml --analyze -i $INPUT -o $ACTUAL/input/input_analyze.yml --with-content
+ruby marcxml --transform -i $INPUT -c conf/$IMPORT.yaml -o $OUTPUT
+ruby marcxml --analyze -i $OUTPUT -o $ANALYZE --with-content
 
 cd $ACTUAL/muscat
 rails r housekeeping/import/import_from_marc.rb $ACTUAL/output/output.xml Source
+#ruby marcxml --analyze -i $INPUT -o $ACTUAL/input/input_analyze.yml --with-content
+
