@@ -105,11 +105,6 @@ if source_file
           tag << sfz
           doc.root << tag
         end
- 
-
-
-
-
         xmlstream.append(doc, v)
       end
     else

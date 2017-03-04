@@ -18,7 +18,7 @@ module Marcxml
     def initialize(node, namespace={'marc' => "http://www.loc.gov/MARC21/slim"})
       @namespace = namespace
       @node = node
-      @methods = [:map, :fix_id, :change_leader, :change_collection, :change_attribution, :prefix_performance,
+      @methods = [:map, :fix_id, :change_collection, :change_attribution, :prefix_performance,
                   :split_730, :change_243, :change_593_abbreviation, :change_009, :add_siglum, 
                   :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes]
       #:insert_773_ref, 
@@ -51,7 +51,6 @@ module Marcxml
       incipits = node.xpath("//marc:datafield[@tag='031']", NAMESPACE)
       incipits.each do |incipit|
         codes.each do |code|
-          binding.pry
           sf = incipit.xpath("marc:subfield[@code='#{code}']", NAMESPACE).first rescue nil
           if sf && sf.content
             sf.content = sf.content.sub(/^0/, "")
