@@ -3,9 +3,8 @@ last = Person.where(:marc_source => nil).order(:created_at => :asc)
 if !last.empty?
   adatum = last.first.created_at - 1.day
 else
-  adatum = Person.order(:created_at => :desc).limit(1).take.created_at - 1.day
+  adatum = Person.order(:created_at => :desc).limit(1).take.created_at + 1.minute
 end
-adatum = Person.where(:marc_source => nil).order(:created_at => :asc).first.created_at - 1.day
 puts adatum
 Person.where('created_at >= ?', adatum).delete_all
 Institution.where('created_at >= ?', adatum).delete_all
