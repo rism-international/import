@@ -18,9 +18,9 @@ module Marcxml
     def initialize(node, namespace={'marc' => "http://www.loc.gov/MARC21/slim"})
       @namespace = namespace
       @node = node
-      @methods = [:map, :fix_id, :change_collection, :change_attribution, :prefix_performance,
-                  :split_730, :change_243, :change_593_abbreviation, :change_009, :add_siglum, 
-                  :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes]
+      @methods = [:map, :fix_id, :change_attribution, :prefix_performance,
+                  :split_730, :change_243, :change_593_abbreviation, :change_009, 
+                  :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, :fix_852]
       #:insert_773_ref, 
     end
 
@@ -94,24 +94,6 @@ module Marcxml
       node.root << tag
       cfield.remove
     end
-
-    def add_siglum
-      datafields=node.xpath("//marc:datafield[@tag='852']", NAMESPACE)
-      datafields.each do |df|
-        sfw = Nokogiri::XML::Node.new "subfield", node
-        sfw['code'] = 'a'
-        sfw.content = "F-Pn"
-        df << sfw
-      end
-    end
-
-    def change_collection
-      datafield=node.xpath("//marc:datafield[@tag='100']", NAMESPACE)
-      if datafield.empty?
-        rename_datafield('240', '130')
-      end
-    end
-
 
 
     def insert_773_ref
@@ -241,6 +223,31 @@ module Marcxml
           sfk.content = title[:arr]
           datafield << sfk
         end
+      end
+    end
+
+    def fix_852
+      tags=node.xpath("//marc:datafield[@tag='852']", NAMESPACE)
+      if tags.size >= 1
+        siglum = tags.first
+        if siglum.xpath("marc:subfield[@code='a']", NAMESPACE).empty?
+          sfa = Nokogiri::XML::Node.new "subfield", node
+          sfa['code'] = 'a'
+          sfa.content = "F-Pn"
+          siglum << sfa
+        end
+        tags[1..-1].each {|t| t.remove}
+      end
+      if tags.empty?
+        tag = Nokogiri::XML::Node.new "datafield", node
+        tag['tag'] = '852'
+        tag['ind1'] = ' '
+        tag['ind2'] = ' '
+        sfa = Nokogiri::XML::Node.new "subfield", node
+        sfa['code'] = 'a'
+        sfa.content = "F-Pn"
+        tag << sfa
+        node.root << tag
       end
     end
 

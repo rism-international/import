@@ -13,6 +13,7 @@ StandardTitle.where('created_at >= ?', adatum).delete_all
 Place.where('created_at >= ?', adatum).delete_all
 StandardTerm.where('created_at >= ?', adatum).delete_all
 LiturgicalFeast.where('created_at >= ?', adatum).delete_all
+Source.delete_all
 
 jointables = [
   "truncate table sources_to_catalogues",
