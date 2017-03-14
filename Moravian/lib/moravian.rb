@@ -16,7 +16,7 @@ module Marcxml
     def initialize(node, namespace={'marc' => "http://www.loc.gov/MARC21/slim"})
       @namespace = namespace
       @node = node
-      @methods = [:fix_id, :fix_dots, :insert_original_entry, :add_material_layer, :map]
+      @methods = [:fix_id, :fix_dots, :fix_leader, :insert_original_entry, :add_material_layer, :map]
     end
 
     # Records have string at beginning
@@ -44,7 +44,16 @@ module Marcxml
 
       node.root << tag
     end
- 
+
+    def fix_leader
+      leader = node.xpath("//marc:leader", NAMESPACE).first
+      if leader.content[5..7] == "cda"
+        c = leader.content
+        c[5..7] = "cdm"
+        leader.content = c
+      end
+    end
+
     
 
   end

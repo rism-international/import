@@ -20,8 +20,8 @@ module Marcxml
       @node = node
       @methods = [:map, :fix_id, :change_attribution, :prefix_performance,
                   :split_730, :change_243, :change_593_abbreviation, :change_009, 
-                  :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, :fix_852]
-      #:insert_773_ref, 
+                  :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, 
+                  :fix_852, :remove_pipe]
     end
 
     def change_relator_codes
@@ -227,14 +227,21 @@ module Marcxml
     end
 
     def fix_852
-      tags=node.xpath("//marc:datafield[@tag='852']", NAMESPACE)
+     tags=node.xpath("//marc:datafield[@tag='852']", NAMESPACE)
       if tags.size >= 1
+        siglum_field = tags.first.xpath("//marc:subfield[@code='5']", NAMESPACE).first.content rescue nil
+        sigl, shelfmark = siglum_field.split(":")
+ 
         siglum = tags.first
         if siglum.xpath("marc:subfield[@code='a']", NAMESPACE).empty?
           sfa = Nokogiri::XML::Node.new "subfield", node
           sfa['code'] = 'a'
-          sfa.content = "F-Pn"
+          sfa.content = convert_siglum(sigl)
           siglum << sfa
+          sfc = Nokogiri::XML::Node.new "subfield", node
+          sfc['code'] = 'c'
+          sfc.content = shelfmark
+          siglum << sfc
         end
         tags[1..-1].each {|t| t.remove}
       end
@@ -247,6 +254,10 @@ module Marcxml
         sfa['code'] = 'a'
         sfa.content = "F-Pn"
         tag << sfa
+        sfc = Nokogiri::XML::Node.new "subfield", node
+        sfc['code'] = 'c'
+        sfc.content = "[without shelfmark]"
+        tag << sfc
         node.root << tag
       end
     end
@@ -261,6 +272,17 @@ module Marcxml
         tags.attr("tag", "730")
       end
     end
+
+    def remove_pipe
+      subfields=node.xpath("//marc:datafield[@tag='240']/marc:subfield[@code='a']", NAMESPACE)
+      subfields.each do |sf|
+        if sf.content.include?("|")
+          sf.content = sf.content.gsub("|", "")
+        end
+      end
+
+    end
+
 
     def change_593_abbreviation
       subfield=node.xpath("//marc:datafield[@tag='593']/marc:subfield[@code='a']", NAMESPACE)
@@ -302,7 +324,25 @@ module Marcxml
         return str
       end
     end
-
+    
+    def convert_siglum(str)
+      case str
+      when "FR-751131010" 
+        return "F-Pnla"
+      when "FR-751021003" 
+        return "F-Pn"
+      when "FR-751131011" 
+        return "F-Pnlr"
+      when "FR-751041002" 
+        return "F-Pa"
+      when "FR-751091001" 
+        return "F-Po"
+      when "FR-751041001" 
+        return "F-Pnas"
+      when "FR-751041006" 
+        return "F-Pnm"
+      end
+    end
 
 
 
