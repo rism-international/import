@@ -22,7 +22,7 @@ module Marcxml
     def initialize(node, namespace={'marc' => "http://www.loc.gov/MARC21/slim"})
       @namespace = namespace
       @node = node
-      @methods = [:change_leader, :add_composer, :insert_original_entry, 
+      @methods = [:change_leader, :add_composer, :insert_original_entry,
                   :fix_id, :fix_dots, :fix_incipit_no, :copy_650, :add_material_layer, 
                   :add_catalogue_agency, :insert_852, 
                   :change_240, :change_650, :change_300, :source_type,
@@ -102,6 +102,11 @@ module Marcxml
           sfa.content = "Autograph manuscript"
           tag << sfa
           node.root << tag
+          sf8 = Nokogiri::XML::Node.new "subfield", node
+          sf8['code'] = '8'
+          sf8.content = "01"
+          tag << sf8 
+          node.root << tag
           break
         else
           tag = Nokogiri::XML::Node.new "datafield", node
@@ -112,6 +117,10 @@ module Marcxml
           sfa['code'] = 'a'
           sfa.content = "Manuscript copy"
           tag << sfa
+          sf8 = Nokogiri::XML::Node.new "subfield", node
+          sf8['code'] = '8'
+          sf8.content = "01"
+          tag << sf8 
           node.root << tag
           break
         end
