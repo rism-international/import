@@ -12,7 +12,6 @@ echo "Convert $IMPORT"
 cd $BIN
 ruby marcxml --transform -i $INPUT -c conf/$IMPORT.yaml -o $TARGET/output/output.xml
 ruby marcxml --analyze -i $TARGET/output/output.xml -o $TARGET/output/output_analyze.yml --with-content
-
 cd $TARGET/muscat
 
 rails r $TARGET/../before_import.rb
