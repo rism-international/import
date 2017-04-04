@@ -7,3 +7,4 @@
 * Changed material terms in 300$a with list
 * Changed uniform title in 240$a with list
 * Changed genre in 650$a with list
+* Added material layer to 593
