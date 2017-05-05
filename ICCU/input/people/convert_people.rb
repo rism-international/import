@@ -11,6 +11,7 @@ require 'open-uri'
 
 NAMESPACE={'marc' => "http://www.loc.gov/MARC21/slim"}
 SCHEMA_FILE="conf/MARC21slim.xsd"
+ids = 40200000
 #OPTIONS
 opts = Trollop::options do
   version "RISM Marcxml 0.1 (2016.07)"
@@ -57,10 +58,11 @@ if source_file
     b_record = Nokogiri.XML('<record></record>')
     leader=record.xpath("//leader")
     isn=record.xpath("//controlfield[@tag='001']")
+    iccu_id = isn.first.content.split("\\")[2] + isn.first.content.split("\\")[3]
+    isn.first.content = (ids += 1)
     b_record.root << leader.to_xml
     b_record.root << isn.to_xml
 
-    iccu_id = isn.first.content.split("\\")[2] + isn.first.content.split("\\")[3]
     cluster = "https://viaf.org/viaf/search?query=cql.serverChoice+%3D+%22#{iccu_id}%22&recordSchema=info:srw/schema/1/marcxml-v1.1&maximumRecords=100&startRecord=1&httpAccept=text/xml"
     cluster_doc = Nokogiri::XML(open(cluster))
     viaf_id = cluster_doc.xpath("//mx:controlfield[@tag='001']", "mx" => "http://www.loc.gov/MARC21/slim").first.content rescue nil
