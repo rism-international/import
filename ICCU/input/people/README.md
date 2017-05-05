@@ -5,12 +5,14 @@ In this folder there are two scripts for processing the original ICCU-marc-file 
 
 Converter
 ---------
-* First there is a converter 'convert\_people.rb' which transforms the original file into a MARC21-xml called 'iccu\_people\_import.xml' with selected fields. Addiational there is a function to get VIAF references into the converted file, so the result will be something like:
+* First there is a converter 'convert\_people.rb' which transforms the original file into a MARC21-xml called 'iccu\_people\_import.xml' with selected fields. Additional there is a function to get VIAF references into the converted file from viaf.org, so the result will be something like:
+```text
 =024 $2 VIAF $a 1293
 =024 $2 ICCU $a BVC78
-=100 $a full\_name $d life\_date
+=100 $a full_name $d life_date
+```
 
-Also this script filters out all insititutions with datafield 210.
+Also this script filters out all institutions with datafield 210.
 
 Importer
 ----------
