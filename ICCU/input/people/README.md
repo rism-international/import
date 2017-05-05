@@ -24,6 +24,6 @@ At the end all people without any matching are created in Muscat, all the others
 
 Result
 -------
-Result is online at the adress iccu.rism.info.
+Result is online at the adress http://iccu.rism.info, it can be filtered to the import set with http://iccu.rism.info/admin/people?utf8=%E2%9C%93&q%5Bfull\_name\_equals%5D=ICCU&commit=Filtern&order=full\_name\_desc
 
 
