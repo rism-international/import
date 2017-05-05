@@ -9,10 +9,10 @@ Converter
 ```text
 =024 $2 VIAF $a 1293
 =024 $2 ICCU $a BVC78
-=100 $a full\_name $d life\_date
+=100 $a full_name $d life_date
 ```
 
-Also this script filters out all insititutions with datafield 210.
+Also this script filters out all institutions with datafield 210.
 
 Importer
 ----------
