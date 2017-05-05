@@ -1,0 +1,1140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collection xmlns:zs="http://www.loc.gov/zing/srw/" xmlns:marc="http://www.loc.gov/MARC21/slim">
+  <record>
+    <leader>00945nx  a2200205   450 </leader>
+    <controlfield tag="001">40200001</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">BVEV063836</subfield>
+    </datafield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">VIAF</subfield>
+      <subfield code="a">90100501</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbati, Giovanni Battista</subfield>
+      <subfield code="d">fl. 1716-1723</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00999nx  a2200181   450 </leader>
+    <controlfield tag="001">40200002</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">CFIV003692</subfield>
+    </datafield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">VIAF</subfield>
+      <subfield code="a">90110971</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abate, Rocco </subfield>
+      <subfield code="f">&lt;1950-    &gt;</subfield>
+      <subfield code="d">1950-</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>01075nx  a2200205   450 </leader>
+    <controlfield tag="001">40200003</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">CFIV059870</subfield>
+    </datafield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">VIAF</subfield>
+      <subfield code="a">39560822</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbado, Claudio</subfield>
+      <subfield code="d">1933-2014</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>01061nx  a2200193   450 </leader>
+    <controlfield tag="001">40200004</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">CUBV000068</subfield>
+    </datafield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">VIAF</subfield>
+      <subfield code="a">90199956</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbate, Gennaro Michele</subfield>
+      <subfield code="d">1874-1954</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00227nx  a2200097   450 </leader>
+    <controlfield tag="001">40200005</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">INTV000247</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbadia, Luigia </subfield>
+      <subfield code="f">&lt;cantante&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00204nx  a2200097   450 </leader>
+    <controlfield tag="001">40200006</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">INTV001440</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbadia</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00213nx  a2200097   450 </leader>
+    <controlfield tag="001">40200007</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">INTV020561</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abaldi, Angelo</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00213nx  a2200097   450 </leader>
+    <controlfield tag="001">40200008</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">INTV022092</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbati, Cosimo</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00214nx  a2200097   450 </leader>
+    <controlfield tag="001">40200009</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">INTV022380</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abate, Giuseppe</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00227nx  a2200097   450 </leader>
+    <controlfield tag="001">40200010</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">INTV024717</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abati, Giuseppe </subfield>
+      <subfield code="f">&lt;fl. 1783&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00226nx  a2200097   450 </leader>
+    <controlfield tag="001">40200011</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">INTV029657</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbatoni, Giovanni Battista</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00214nx  a2200097   450 </leader>
+    <controlfield tag="001">40200012</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">INTV031520</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbiati</subfield>
+      <subfield code="f">&lt;tromba&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00215nx  a2200097   450 </leader>
+    <controlfield tag="001">40200013</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">INTV037741</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbarelli, Luigi</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00217nx  a2200097   450 </leader>
+    <controlfield tag="001">40200014</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">INTV039055</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbate, Alessandro</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00211nx  a2200097   450 </leader>
+    <controlfield tag="001">40200015</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">INTV040486</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbati, Anna</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00203nx  a2200097   450 </leader>
+    <controlfield tag="001">40200016</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">INTV041469</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbate</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00216nx  a2200097   450 </leader>
+    <controlfield tag="001">40200017</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">INTV043651</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbiate, Giovanni</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00214nx  a2200097   450 </leader>
+    <controlfield tag="001">40200018</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">INTV045014</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abarelli, Laura</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00233nx  a2200097   450 </leader>
+    <controlfield tag="001">40200019</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">INTV047870</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbiati, Giovanni </subfield>
+      <subfield code="f">&lt;trombettista&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00972nx  a2200205   450 </leader>
+    <controlfield tag="001">40200020</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">LO1V089687</subfield>
+    </datafield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">VIAF</subfield>
+      <subfield code="a">100189707</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abati, Antonio</subfield>
+      <subfield code="d">1604?-1667</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00895nx  a2200193   450 </leader>
+    <controlfield tag="001">40200021</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">LO1V162475</subfield>
+    </datafield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">VIAF</subfield>
+      <subfield code="a">59352243</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbatini, Antonio Maria</subfield>
+      <subfield code="d">ca. 1595-ca. 1677</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00240nx  a2200097   450 </leader>
+    <controlfield tag="001">40200022</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">LO1V186388</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abashidzé-Gorlenko, Nina </subfield>
+      <subfield code="f">&lt;principessa&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00202nx  a2200097   450 </leader>
+    <controlfield tag="001">40200023</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000001</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="0">
+      <subfield code="a">A. B.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00202nx  a2200097   450 </leader>
+    <controlfield tag="001">40200024</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000005</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="0">
+      <subfield code="a">A. C.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00254nx  a2200109   450 </leader>
+    <controlfield tag="001">40200025</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000007</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">A., C. </subfield>
+      <subfield code="f">&lt;sec.15.-16.&gt;</subfield>
+      <subfield code="d"> sec.15.-16.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00205nx  a2200097   450 </leader>
+    <controlfield tag="001">40200026</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000023</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">A. F. M.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00202nx  a2200097   450 </leader>
+    <controlfield tag="001">40200027</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000028</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="0">
+      <subfield code="a">A. G.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00205nx  a2200097   450 </leader>
+    <controlfield tag="001">40200028</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000032</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">A. G. T.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00205nx  a2200097   450 </leader>
+    <controlfield tag="001">40200029</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000040</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">A. P. M.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00205nx  a2200097   450 </leader>
+    <controlfield tag="001">40200030</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000044</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">A. S. S.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00764nx  a2200193   450 </leader>
+    <controlfield tag="001">40200031</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000061</subfield>
+    </datafield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">VIAF</subfield>
+      <subfield code="a">286431484</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Aaron, Pietro</subfield>
+      <subfield code="d">1489c-1545</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00251nx  a2200109   450 </leader>
+    <controlfield tag="001">40200032</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000063</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abachidze</subfield>
+      <subfield code="f">&lt;principessa&gt;</subfield>
+      <subfield code="d">&lt;principessa&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00239nx  a2200109   450 </leader>
+    <controlfield tag="001">40200033</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000065</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abadie, Louis</subfield>
+      <subfield code="d">&lt;sec. 19.&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00224nx  a2200097   450 </leader>
+    <controlfield tag="001">40200034</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000066</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abancourt, Willemain : d'</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00224nx  a2200097   450 </leader>
+    <controlfield tag="001">40200035</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000069</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abatantuono, Franceschina</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00256nx  a2200109   450 </leader>
+    <controlfield tag="001">40200036</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000070</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abate, Giovanni </subfield>
+      <subfield code="f">&lt;musicista&gt;</subfield>
+      <subfield code="d">&lt;musicista&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00213nx  a2200097   450 </leader>
+    <controlfield tag="001">40200037</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000074</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abate, Stefano</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00317nx  a2200121   450 </leader>
+    <controlfield tag="001">40200038</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000077</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abati, Luigi</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00213nx  a2200097   450 </leader>
+    <controlfield tag="001">40200039</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000078</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abati, Tommaso</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00211nx  a2200097   450 </leader>
+    <controlfield tag="001">40200040</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000080</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abaza, V. V.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00310nx  a2200121   450 </leader>
+    <controlfield tag="001">40200041</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000083</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbadia, Natale </subfield>
+      <subfield code="f">&lt;1782-1861&gt;</subfield>
+      <subfield code="d">&lt;1782-1861&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00259nx  a2200109   450 </leader>
+    <controlfield tag="001">40200042</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000090</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbate, Enrico </subfield>
+      <subfield code="f">&lt;compositore&gt;</subfield>
+      <subfield code="d">&lt;compositore&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00215nx  a2200097   450 </leader>
+    <controlfield tag="001">40200043</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000091</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbate, Federico</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00262nx  a2200109   450 </leader>
+    <controlfield tag="001">40200044</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000093</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbate, Gennaro Maria </subfield>
+      <subfield code="f">&lt;1874-1954&gt;</subfield>
+      <subfield code="d">&lt;1874-1954&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00262nx  a2200109   450 </leader>
+    <controlfield tag="001">40200045</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000095</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="0">
+      <subfield code="a">Abbate Napolitano </subfield>
+      <subfield code="f">&lt;sec. 16.-17.&gt;</subfield>
+      <subfield code="d">&lt;sec. 16.-17.&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00284nx  a2200109   450 </leader>
+    <controlfield tag="001">40200046</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000098</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbati, Achille </subfield>
+      <subfield code="f">&lt;1857-1914 ; compositore&gt;</subfield>
+      <subfield code="d">&lt;1857-1914 ; compositore&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00222nx  a2200097   450 </leader>
+    <controlfield tag="001">40200047</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000099</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbati Buonamini, Lucia</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00255nx  a2200109   450 </leader>
+    <controlfield tag="001">40200048</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000100</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbati, Dionigio </subfield>
+      <subfield code="f">&lt;sec. 19.&gt;</subfield>
+      <subfield code="d">&lt;sec. 19.&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00278nx  a2200109   450 </leader>
+    <controlfield tag="001">40200049</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000102</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbati, Francesco Maria </subfield>
+      <subfield code="f">&lt;vescovo di Rieti&gt;</subfield>
+      <subfield code="d">&lt;vescovo di Rieti&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00254nx  a2200109   450 </leader>
+    <controlfield tag="001">40200050</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000103</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbati, Gaspare </subfield>
+      <subfield code="f">&lt;sec. 19.&gt;</subfield>
+      <subfield code="d">&lt;sec. 19.&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00220nx  a2200097   450 </leader>
+    <controlfield tag="001">40200051</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000104</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbati, Gio. Battista</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00217nx  a2200097   450 </leader>
+    <controlfield tag="001">40200052</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000105</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbati, Gioacchino</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00323nx  a2200121   450 </leader>
+    <controlfield tag="001">40200053</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000106</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbati, Pietro </subfield>
+      <subfield code="f">&lt;scenografo&gt;</subfield>
+      <subfield code="d">&lt;scenografo&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00281nx  a2200109   450 </leader>
+    <controlfield tag="001">40200054</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000107</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbati, Pietro </subfield>
+      <subfield code="f">&lt;sec. 18. ; compositore&gt;</subfield>
+      <subfield code="d">&lt;sec. 18. ; compositore&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00213nx  a2200097   450 </leader>
+    <controlfield tag="001">40200055</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000112</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbema, Louise</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00311nx  a2200121   450 </leader>
+    <controlfield tag="001">40200056</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000114</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbiate, Luigi </subfield>
+      <subfield code="f">&lt;1866-1933&gt;</subfield>
+      <subfield code="d">1866-1933</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00249nx  a2200109   450 </leader>
+    <controlfield tag="001">40200057</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000115</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbiati</subfield>
+      <subfield code="f">&lt;macchinista&gt;</subfield>
+      <subfield code="d">&lt;macchinista&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00214nx  a2200097   450 </leader>
+    <controlfield tag="001">40200058</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000116</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbiati, Albino</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00213nx  a2200097   450 </leader>
+    <controlfield tag="001">40200059</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000118</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbiati, G. B.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00312nx  a2200121   450 </leader>
+    <controlfield tag="001">40200060</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000119</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbiati, Luigi </subfield>
+      <subfield code="f">&lt;macchinista&gt;</subfield>
+      <subfield code="d">&lt;macchinista&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00201nx  a2200097   450 </leader>
+    <controlfield tag="001">40200061</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000175</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="0">
+      <subfield code="a">A.C.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00201nx  a2200097   450 </leader>
+    <controlfield tag="001">40200062</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000298</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="0">
+      <subfield code="a">A.D.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00201nx  a2200097   450 </leader>
+    <controlfield tag="001">40200063</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000436</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="0">
+      <subfield code="a">A.F.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00203nx  a2200097   450 </leader>
+    <controlfield tag="001">40200064</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000546</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="0">
+      <subfield code="a">A.G.S.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00201nx  a2200097   450 </leader>
+    <controlfield tag="001">40200065</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV000616</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="0">
+      <subfield code="a">A.L.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00201nx  a2200097   450 </leader>
+    <controlfield tag="001">40200066</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV001377</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="0">
+      <subfield code="a">A.M.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00201nx  a2200097   450 </leader>
+    <controlfield tag="001">40200067</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV001572</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="0">
+      <subfield code="a">A.N.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00201nx  a2200097   450 </leader>
+    <controlfield tag="001">40200068</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV002237</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="0">
+      <subfield code="a">A.P.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00207nx  a2200097   450 </leader>
+    <controlfield tag="001">40200069</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV002250</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="0">
+      <subfield code="a">A.P.F.M.B.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00201nx  a2200097   450 </leader>
+    <controlfield tag="001">40200070</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV002327</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">A.R.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00201nx  a2200097   450 </leader>
+    <controlfield tag="001">40200071</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV003037</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="0">
+      <subfield code="a">A.T.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00247nx  a2200109   450 </leader>
+    <controlfield tag="001">40200072</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV003369</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="0">
+      <subfield code="a">A.Z. </subfield>
+      <subfield code="f">&lt;librettista&gt;</subfield>
+      <subfield code="d">&lt;librettista&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00384nx  a2200145   450 </leader>
+    <controlfield tag="001">40200073</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV019293</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Zúñiga y Avellaneda, Francisco : de</subfield>
+      <subfield code="d">16. sec.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00215nx  a2200097   450 </leader>
+    <controlfield tag="001">40200074</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV044444</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Zach, M. I. : de</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00292nx  a2200121   450 </leader>
+    <controlfield tag="001">40200075</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV052172</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="0">
+      <subfield code="a">Abbate Pitigliano</subfield>
+      <subfield code="d">&lt;abate&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00216nx  a2200097   450 </leader>
+    <controlfield tag="001">40200076</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV071946</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">A., C. : di Siena</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00523nx  a2200169   450 </leader>
+    <controlfield tag="001">40200077</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV073240</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Hessen-Darmstadt, Emil : von</subfield>
+      <subfield code="d">1790-1856</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00262nx  a2200109   450 </leader>
+    <controlfield tag="001">40200078</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV073631</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abate, Alessandro </subfield>
+      <subfield code="f">&lt;compositore&gt;</subfield>
+      <subfield code="d">&lt;compositore&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00215nx  a2200097   450 </leader>
+    <controlfield tag="001">40200079</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV077550</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbiati, Tommaso</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00222nx  a2200097   450 </leader>
+    <controlfield tag="001">40200080</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV078817</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbiate Forieri, Matteo</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00210nx  a2200097   450 </leader>
+    <controlfield tag="001">40200081</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV082797</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbiati, P.</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00260nx  a2200109   450 </leader>
+    <controlfield tag="001">40200082</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV085777</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbiati, Pietro </subfield>
+      <subfield code="f">&lt;macchinista&gt;</subfield>
+      <subfield code="d">&lt;macchinista&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00316nx  a2200121   450 </leader>
+    <controlfield tag="001">40200083</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV086542</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbiati, Antonio </subfield>
+      <subfield code="f">&lt;macchinista&gt;</subfield>
+      <subfield code="d">&lt;macchinista&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00755nx  a2200145   450 </leader>
+    <controlfield tag="001">40200084</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">MUSV087250</subfield>
+    </datafield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">VIAF</subfield>
+      <subfield code="a">24794465</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbado, Roberto</subfield>
+      <subfield code="d">1954-</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>01143nx  a2200193   450 </leader>
+    <controlfield tag="001">40200085</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">PALV017756</subfield>
+    </datafield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">VIAF</subfield>
+      <subfield code="a">226575015</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbate, Onofrio</subfield>
+      <subfield code="d">1824-1915</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>01161nx  a2200193   450 </leader>
+    <controlfield tag="001">40200086</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">RAVV037393</subfield>
+    </datafield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">VIAF</subfield>
+      <subfield code="a">103155212</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbiati, Franco </subfield>
+      <subfield code="f">&lt;1898-1981&gt;</subfield>
+      <subfield code="d">1898-1981</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>01247nx  a2200205   450 </leader>
+    <controlfield tag="001">40200087</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">RAVV068789</subfield>
+    </datafield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">VIAF</subfield>
+      <subfield code="a">34640709</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbado, Michelangelo</subfield>
+      <subfield code="d">1890-1979</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00672nx  a2200157   450 </leader>
+    <controlfield tag="001">40200088</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">RMLV042081</subfield>
+    </datafield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">VIAF</subfield>
+      <subfield code="a">90314676</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbati Marescotti, Paolo</subfield>
+      <subfield code="d">1812-1878</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00222nx  a2200097   450 </leader>
+    <controlfield tag="001">40200089</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">SBNV012486</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abadie, J. </subfield>
+      <subfield code="f">&lt;cantante&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00281nx  a2200109   450 </leader>
+    <controlfield tag="001">40200090</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">SBNV013135</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbagnato-Milanesi, Litterio</subfield>
+      <subfield code="d">1810-?</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00225nx  a2200097   450 </leader>
+    <controlfield tag="001">40200091</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">SBNV013936</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abadia, Luisa </subfield>
+      <subfield code="f">&lt;cantante&gt;</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00209nx  a2200097   450 </leader>
+    <controlfield tag="001">40200092</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">SBNV016299</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abbadia, M</subfield>
+    </datafield>
+  </record>
+  <record>
+    <leader>00427nx  a2200133   450 </leader>
+    <controlfield tag="001">40200093</controlfield>
+    <datafield tag="024" ind1="7" ind2=" ">
+      <subfield code="2">ICCU</subfield>
+      <subfield code="a">UBOV609266</subfield>
+    </datafield>
+    <datafield tag="100" ind1=" " ind2="1">
+      <subfield code="a">Abatessa, Giovanni Battista</subfield>
+    </datafield>
+  </record>
+</collection>

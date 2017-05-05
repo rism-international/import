@@ -1,4 +1,6 @@
 muscat/
 *.xml
+!names.xml
+!iccu_people_import.xml
 import_db.sql
 BNF/input/RISM_MSS.2709.5426
