@@ -46,6 +46,7 @@ marc_import.each_record(ifile) do |record|
     ref_person = Person.where(:full_name => full_name).where('life_dates like ?', "#{birth_date}%").take
 =end
     ref_person = Person.where(:full_name => full_name).take
+      binding.pry
     if ref_person
       marc = ref_person.marc
       new_024 = MarcNode.new(Person, "024", "", "##")

@@ -9,6 +9,8 @@ module Marcxml
     NAMESPACE={'marc' => "http://www.loc.gov/MARC21/slim"}
     include Logging
     @refs = {}
+    @@id_reference = YAML.load_file("../import/Moravian/id_reference.yml")
+    #@@start_id = 240000
     class << self
       attr_accessor :refs
     end
@@ -16,15 +18,18 @@ module Marcxml
     def initialize(node, namespace={'marc' => "http://www.loc.gov/MARC21/slim"})
       @namespace = namespace
       @node = node
-      @methods = [:fix_id, :fix_dots, :fix_leader, :insert_original_entry, :add_material_layer, :map]
+      @methods = [:fix_id, :fix_dots, :fix_leader, :insert_original_entry, :add_material_layer, :join630, :map]
     end
 
     # Records have string at beginning
     def fix_id
       controlfield = node.xpath("//marc:controlfield[@tag='001']", NAMESPACE).first
-      controlfield.content = controlfield.content.gsub("ocn", "1") 
+      controlfield.content = @@id_reference[controlfield.content]
+      #open('id_reference.yml', 'a') { |f|
+      #  f.puts "#{controlfield.content}: #{@@start_id += 1}"
+      #}
       links = node.xpath("//marc:datafield[@tag='773']/marc:subfield[@code='w']", NAMESPACE)
-      links.each {|link| link.content = link.content.gsub("(OCoLC)", "1")}
+      links.each {|link| link.content = @@id_reference[link.content.gsub("(OCoLC)", "ocn")]}
     end
 
     def insert_original_entry
@@ -54,6 +59,22 @@ module Marcxml
       end
     end
 
+    def join630
+      sf = node.xpath("//marc:datafield[@tag='630']", NAMESPACE)
+      sf.each do |s|
+        sf_a = s.xpath("marc:subfield[@code='a']", NAMESPACE)[0].content rescue ""
+        sf_p = s.xpath("marc:subfield[@code='p']", NAMESPACE)[0].content rescue ""
+        tag = Nokogiri::XML::Node.new "datafield", node
+        tag['tag'] = '500'
+        tag['ind1'] = ' '
+        tag['ind2'] = ' '
+        sfu = Nokogiri::XML::Node.new "subfield", node
+        sfu['code'] = 'a'
+        sfu.content = "#{sf_a} #{sf_p}"
+        tag << sfu
+        node.root << tag
+      end
+    end
     
 
   end

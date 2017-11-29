@@ -40,7 +40,7 @@ if opts[:infile].size == 1
 end
 
 ofile=File.open(opts[:outfile], "w")
-total = 101
+total = 22000
 
 bar = ProgressBar.create(title: "Found", :format => "%c of %C Records parsed. -- %a | %B | %p%% %e".yellow, total: total, remainder_mark: '-', progress_mark: '#')
 
@@ -66,6 +66,8 @@ if source_file
     cluster = "https://viaf.org/viaf/search?query=cql.serverChoice+%3D+%22#{iccu_id}%22&recordSchema=info:srw/schema/1/marcxml-v1.1&maximumRecords=100&startRecord=1&httpAccept=text/xml"
     cluster_doc = Nokogiri::XML(open(cluster))
     viaf_id = cluster_doc.xpath("//mx:controlfield[@tag='001']", "mx" => "http://www.loc.gov/MARC21/slim").first.content rescue nil
+    
+    #024 created from interface and 001 (ICCU)
     n024=Nokogiri.XML("<datafield tag='024' ind1='7' ind2=' '><subfield code='2'>ICCU</subfield><subfield code='a'>#{iccu_id}</subfield></datafield>")
     if viaf_id
       puts viaf_id
@@ -73,22 +75,60 @@ if source_file
     end
     b_record.root << n024.root.to_xml
     b_record.root << viaf_node.root.to_xml if viaf_id
-    life_date = record.xpath("//datafield[@tag='300']/subfield[@code='a']").first
-    life_date["code"]="d" if life_date
-    life_date.content = life_date.content.split(" //").first if life_date
+
+    #100
+    #life_date = record.xpath("//datafield[@tag='300']/subfield[@code='a']").first
+    #life_date["code"]="d" if life_date
+    #life_date.content = life_date.content.split(" //").first if life_date
+
     name=record.xpath("//datafield[@tag='200']").first
     if name
       sf_a = name.xpath("subfield[@code='a']")
       sf_b = name.xpath("subfield[@code='b']")
+      sf_d = name.xpath("subfield[@code='f']")
       sf_a.first.content += (sf_b.first.content rescue "")
       sf_b.remove
-      name << life_date if life_date
+      if sf_d && sf_d.first
+        sf_d.first.content = sf_d.first.content.gsub("<", "").gsub(">", "")
+        sf_d.first["code"]="d"
+      end
+
+      sf_c = name.xpath("subfield[@code='c']")
+      sf_c.each do |e|
+        b_record.root << Nokogiri.XML("<datafield tag='680' ind1=' ' ind2=' '><subfield code='a'>#{e.content.gsub("<", "").gsub(">", "")}</subfield></datafield>").root.to_xml
+      end
+      sf_c.remove
+      #name << life_date if life_date
       name["tag"]='100'
       b_record.root << name.to_xml
     end
 
-    doc.doc.root << b_record.root.to_xml
-    
+    variants=record.xpath("//datafield[@tag='400']")
+    variants.each do |variant|
+      sf_a = variant.xpath("subfield[@code='a']")
+      sf_b = variant.xpath("subfield[@code='b']")
+      sf_d = variant.xpath("subfield[@code='f']")
+      sf_3 = variant.xpath("subfield[@code='3']")
+      sf_3.remove
+      sf_a.first.content += (sf_b.first.content rescue "")
+      sf_b.remove
+      if sf_d && sf_d.first
+        sf_d.first.content = sf_d.first.content.gsub("<", "").gsub(">", "")
+        sf_d.first["code"]="d"
+      end
+      #name << life_date if life_date
+      #name["tag"]='100'
+      b_record.root << variant.to_xml
+    end
+  
+    nodes = record.xpath("//datafield[@tag='300' or @tag='510' or @tag='810' or @tag='815' or @tag='830']/subfield[@code='a']")
+    nodes.each do |node|
+      b_record.root << Nokogiri.XML("<datafield tag='680' ind1=' ' ind2=' '><subfield code='a'>#{node.content.gsub("<", "").gsub(">", "")
+}</subfield></datafield>").root.to_xml
+    end
+    #xml = Nokogiri.XML("<record></record>")
+    #b_record.children.sort_by{|node| [node.attr("tag"), nodes.index(node)]}.first.children.each{ |node| xml.root.add_child(node) }
+    doc.doc.root << b_record.root
     bar.increment
   end
 end 
