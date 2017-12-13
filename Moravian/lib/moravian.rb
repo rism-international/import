@@ -97,6 +97,16 @@ module Marcxml
     def create_excerpts
       ex = node.xpath("//marc:datafield[@tag='240']/marc:subfield[@code='p']", NAMESPACE)
       unless ex.empty?
+        tag = Nokogiri::XML::Node.new "datafield", node
+        tag['tag'] = '730'
+        tag['ind1'] = ' '
+        tag['ind2'] = ' '
+        sfu = Nokogiri::XML::Node.new "subfield", node
+        sfu['code'] = 'a'
+        sfu.content = "#{ex.first.content}"
+        tag << sfu
+        node.root << tag
+        ex.first.remove
         df = node.xpath("//marc:datafield[@tag='240']", NAMESPACE).first
         sf = df.xpath("marc:subfield[@code='k']", NAMESPACE).first
         if !sf
