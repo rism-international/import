@@ -18,7 +18,9 @@ module Marcxml
     def initialize(node, namespace={'marc' => "http://www.loc.gov/MARC21/slim"})
       @namespace = namespace
       @node = node
-      @methods = [:fix_id, :fix_dots, :fix_leader, :insert_original_entry, :add_material_layer, :join630, :map]
+      @methods = [:fix_id, :fix_dots, :fix_leader, :insert_original_entry, :add_material_layer, 
+                  :join630, :move_language, :create_excerpts,
+                  :map]
     end
 
     # Records have string at beginning
@@ -59,6 +61,22 @@ module Marcxml
       end
     end
 
+    def move_language
+      leader = node.xpath("//marc:controlfield[@tag='008']", NAMESPACE)[0].content
+      lang_code = leader[35..37]
+      if lang_code && lang_code != "zxx"
+        tag = Nokogiri::XML::Node.new "datafield", node
+        tag['tag'] = '041'
+        tag['ind1'] = ' '
+        tag['ind2'] = ' '
+        sfu = Nokogiri::XML::Node.new "subfield", node
+        sfu['code'] = 'a'
+        sfu.content = "#{lang_code}"
+        tag << sfu
+        node.root << tag
+      end
+    end
+
     def join630
       sf = node.xpath("//marc:datafield[@tag='630']", NAMESPACE)
       sf.each do |s|
@@ -73,6 +91,20 @@ module Marcxml
         sfu.content = "#{sf_a} #{sf_p}"
         tag << sfu
         node.root << tag
+      end
+    end
+
+    def create_excerpts
+      ex = node.xpath("//marc:datafield[@tag='240']/marc:subfield[@code='p']", NAMESPACE)
+      unless ex.empty?
+        df = node.xpath("//marc:datafield[@tag='240']", NAMESPACE).first
+        sf = df.xpath("marc:subfield[@code='k']", NAMESPACE).first
+        if !sf
+          sfk = Nokogiri::XML::Node.new "subfield", node
+          sfk['code'] = 'k'
+          sfk.content = "Excerpts"
+          df << sfk
+        end
       end
     end
     
