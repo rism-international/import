@@ -19,7 +19,7 @@ module Marcxml
       @namespace = namespace
       @node = node
       @methods = [:fix_id, :fix_dots, :fix_leader, :insert_original_entry, :add_material_layer, 
-                  :join630, :move_language, :create_excerpts,
+                  :join630, :move_language, :create_excerpts, :concat_245,
                   :map]
     end
 
@@ -117,7 +117,19 @@ module Marcxml
         end
       end
     end
-    
+
+    def concat_245
+      codes = %w( b c f g h k n p s )
+      txt = []
+      ex = node.xpath("//marc:datafield[@tag='245']", NAMESPACE)
+      codes.each do |code|
+        sf = ex.xpath("marc:subfield[@code='#{code}']", NAMESPACE)
+        sf.each do |e| txt << e.content end
+        sf.remove
+      end
+      dip = node.xpath("//marc:datafield[@tag='245']/marc:subfield[@code='a']", NAMESPACE).first
+      dip.content = "#{dip.content} #{txt.join(" ")}" if dip
+    end
 
   end
 end
