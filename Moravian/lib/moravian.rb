@@ -19,7 +19,7 @@ module Marcxml
       @namespace = namespace
       @node = node
       @methods = [:fix_id, :fix_dots, :fix_leader, :insert_original_entry, :add_material_layer, 
-                  :join630, :move_language, :create_excerpts, :concat_245, :concat_555,
+                  :join630, :move_language, :create_excerpts, :concat_245, :concat_555, :concat_382,
                   :map]
     end
 
@@ -144,6 +144,28 @@ module Marcxml
           sfd.remove
         end
         ex.xpath("marc:subfield[@code='a']", NAMESPACE).first.content = txt.join(" ")
+      end
+    end
+
+    def concat_382
+      txt = []
+      ex = node.xpath("//marc:datafield[@tag='382']", NAMESPACE)
+      ex.each do |df|
+        df.xpath("marc:subfield[@code='a']", NAMESPACE).each do |sf|
+          txt << sf.content
+        end
+        df.remove
+      end
+      unless txt.empty?
+        tag = Nokogiri::XML::Node.new "datafield", node
+        tag['tag'] = '500'
+        tag['ind1'] = ' '
+        tag['ind2'] = ' '
+        sfu = Nokogiri::XML::Node.new "subfield", node
+        sfu['code'] = 'a'
+        sfu.content = "Instrumentation: #{txt.join(", ")}"
+        tag << sfu
+        node.root << tag
       end
     end
 
