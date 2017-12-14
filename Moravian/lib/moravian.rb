@@ -19,7 +19,7 @@ module Marcxml
       @namespace = namespace
       @node = node
       @methods = [:fix_id, :fix_dots, :fix_leader, :insert_original_entry, :add_material_layer, 
-                  :join630, :move_language, :create_excerpts, :concat_245, :concat_555, :concat_382,
+                  :join630, :move_language, :create_excerpts, :concat_245, :concat_555, :concat_382, :correct_siglum_ws,
                   :map]
     end
 
@@ -169,6 +169,20 @@ module Marcxml
       end
     end
 
+    def correct_siglum_ws
+      xvalue = "30002512"
+      ex = node.xpath("//marc:datafield[@tag='852']", NAMESPACE)
+      ex.each do |df|
+        df.xpath("marc:subfield[@code='a']", NAMESPACE).each do |sf|
+          if sf.content == "US-WS"
+            sfu = Nokogiri::XML::Node.new "subfield", node
+            sfu['code'] = 'x'
+            sfu.content = xvalue
+            df << sfu
+          end
+        end
+      end
+    end
 
   end
 end
