@@ -10,6 +10,7 @@ module Marcxml
     include Logging
     @refs = {}
     @@id_reference = YAML.load_file("../import/Moravian/id_reference.yml")
+    @@muscat_conf = MuscatMarcConfig.new(:Source).tags_with_subtags
     #@@start_id = 240000
     class << self
       attr_accessor :refs
@@ -18,8 +19,9 @@ module Marcxml
     def initialize(node, namespace={'marc' => "http://www.loc.gov/MARC21/slim"})
       @namespace = namespace
       @node = node
-      @methods = [:fix_id, :fix_dots, :fix_leader, :insert_original_entry, :add_material_layer, 
-                  :join630, :move_language, :create_excerpts, :concat_245, :concat_555, :concat_382, :correct_siglum_ws,
+      @methods = [:insert_original_entry, :fix_id, :fix_dots, :fix_leader, :add_material_layer, 
+                  :join630, :move_language, :create_excerpts, :concat_245, :concat_555, 
+                  :concat_382, :correct_siglum_ws, :remove_empty_773, :clear_unused_fields,
                   :map]
     end
 
@@ -42,7 +44,7 @@ module Marcxml
       tag['ind2'] = ' '
       sfu = Nokogiri::XML::Node.new "subfield", node
       sfu['code'] = 'u'
-      sfu.content = "https://moravianmusic.on.worldcat.org/oclc/#{id[1..-1]}"
+      sfu.content = "https://moravianmusic.on.worldcat.org/oclc/#{id[3..-1]}"
       tag << sfu
       sfz = Nokogiri::XML::Node.new "subfield", node
       sfz['code'] = 'z'
@@ -182,6 +184,21 @@ module Marcxml
           end
         end
       end
+    end
+
+    def remove_empty_773
+      ex = node.xpath("//marc:datafield[@tag='773']", NAMESPACE)
+      ex.each do |df|
+        df.xpath("marc:subfield[@code='w']", NAMESPACE).each do |sf|
+          if !sf || sf.content == ""
+            ex.remove
+          end
+        end
+      end
+    end
+
+    def clear_unused_fields
+      clear_unknown_muscat_fields(@@muscat_conf)
     end
 
   end
