@@ -21,7 +21,7 @@ module Marcxml
       @node = node
       @methods = [:insert_original_entry, :fix_id, :fix_dots, :fix_leader, :add_material_layer, 
                   :join630, :move_language, :create_excerpts, :concat_245, :concat_555, 
-                  :concat_382, :correct_siglum_ws, :remove_empty_773, :clear_unused_fields,
+                  :concat_382, :correct_siglum_ws, :remove_empty_773, :add_240_a, :clear_unused_fields,
                   :map]
     end
 
@@ -196,6 +196,19 @@ module Marcxml
         end
       end
     end
+
+    def add_240_a
+      ex = node.xpath("//marc:datafield[@tag='240']", NAMESPACE)
+      ex.each do |df|
+        if df.xpath("marc:subfield[@code='a']", NAMESPACE).empty?
+            sfu = Nokogiri::XML::Node.new "subfield", node
+            sfu['code'] = 'a'
+            sfu.content = "Pieces"
+            df << sfu
+        end
+      end
+    end
+
 
     def clear_unused_fields
       clear_unknown_muscat_fields(@@muscat_conf)
