@@ -1,7 +1,6 @@
 muscat/
 *.xml
 *.mrc
-*.tar.gz
 *.xml.sec
 !names.xml
 !iccu_people_import.xml
