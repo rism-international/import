@@ -1,0 +1,3 @@
+[submodule "marcxml"]
+	path = marcxml
+	url = https://github.com/rism-international/marcxml
