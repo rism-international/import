@@ -72,9 +72,9 @@ module Marcxml
           else
             @@without_siglum[sf.content] += 1
           end
+          File.write('output/without_siglum.yml', @@without_siglum.to_yaml)
         end
       end
-      #uts @@without_siglum
 
     end
 
@@ -83,7 +83,6 @@ module Marcxml
       px.each do |p|
         p.content = @@relator_codes[p.content]
       end
-
     end
 
     def fix_id

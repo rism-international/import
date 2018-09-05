@@ -1,0 +1,328 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'yaml'
+require 'nokogiri'
+require 'trollop'
+require 'ruby-progressbar'
+require 'rbconfig'
+require 'zip'
+require 'pry'
+require 'colorize'
+
+NAMESPACE={'marc' => "http://www.loc.gov/MARC21/slim"}
+SCHEMA_FILE="conf/MARC21slim.xsd"
+
+#OPTIONS
+opts = Trollop::options do
+  version "RISM Marcxml 0.1 (2016.07)"
+  banner <<-EOS
+This utility program changes MARCXML nodes according to an YAML file. 
+Overall required argument is -i [inputfile].
+
+Usage:
+   marcxml [-cio] [-aftmrsd] [--with-content --with-linked --with-disjunct --zip --with-limit]
+where [options] are:
+  EOS
+
+  opt :analyze, "Analyze Marcxml, returning text to stdout;
+  Optional: --with-content: add sample content at end of line
+  Example: `marcxml -i input.xml -c config.yaml -o output.txt --with-content`
+  ", :short => '-a'
+  
+  opt :filter, "Filter Marcxml
+  Required: -c [Yaml-config-file]
+  Optional: --with-linked: select also linked parent/child entries
+  Optional: --with-disjunct: select with logical disjunction
+  Example: `marcxml --filter -i input.xml -c config.yaml --with-disjunct`
+  ", :short => '-f'
+  
+  opt :transform, "Transform Marcxml
+  Required: -c [Yaml-config-file]
+  Example: `marcxml --transform -i input.xml -c config.yaml -o output.xml`
+  ", :short => '-t'
+  
+  opt :merge, "Merge Marcxml; merges an array of inputfiles
+  Required: -i [list of input files]
+  Example: `marcxml --merge -i input1.xml input2.xml [...] -o output.xml`
+  ", :short => '-m'
+  
+  
+  opt :report, "Generate Report
+  Example: `marcxml -i input-xml --as-xls --with-tag='100$a'`
+  ", :short => '-r'
+  
+  opt :split, "Split Marcxml, returning sequence of 000000.xml files;
+  Optional: --with-limit: Specify record size for splitting
+  Example: 'marcxml --split -i input.xml --with-limit=10000'
+  ", :short => '-s'
+  
+  opt :validate, "Validate Marcxml according to standard
+  
+  
+  Additional options are:
+  ", :short => '-d'
+  
+  opt :config, "YAML-file with transforming rules", :type => :string, :default => "conf/transform.yaml", :short => "-c"
+  opt :infile, "Input-Filename", :type => :strings, :short => "-i"
+  opt :outfile, "Output-Filename", :type => :string, :default => "out.xml", :short => '-o'
+  opt "with-content", "with sample content (only with analyze)"
+  opt "with-linked", "with linked entries (only with filter)", :type => :string
+  opt "with-disjunct", "With or logic (only with filter)"
+  opt "with-tag", "Specify marc datafield for reporting", :type => :string
+  opt :muscat, "Import special Muscat libraries", :default => false
+  opt "xls", "Format output of report as xls"
+  opt "csv", "Format output of report as csv"
+  opt :zip, "Create output as zip"
+  opt "with-limit", "Limit size of output", :short => '-l', :type => :integer, :default => 50000
+end
+
+fx = Dir[File.dirname(__FILE__) + '/*.rb']
+fx.each do |file| 
+  require "./" + file 
+end
+
+if opts[:muscat]
+  if !ENV['ORACLE_HOST']
+    puts "You are using this program with the `--muscat`-flag; please be sure to have configured ORACLE-connection by enviroment!".yellow
+  end
+  Dir[File.dirname(__FILE__) + '/lib/muscat/*.rb'].each do |file| 
+    require file 
+  end
+end
+
+Trollop::die :infile, "must exist" if !opts[:infile]
+if (opts[:transform] || opts[:filter]) && !opts[:config]
+  puts "argument `-c; --config` required."
+  exit
+end
+
+#Trollop::die :outfile, "must exist" if opts[:report]
+if opts[:report] && !opts['with-tag']
+  puts "argument `--with-tag` required."
+end
+
+if opts[:infile].size == 1
+  source_file = opts[:infile].first
+else
+  source_files = opts[:infile]
+end
+
+ofile=File.open(opts[:outfile], "w")
+if source_file
+  total = Marcxml::ApplicationHelper.total(source_file)
+else
+  total = 10000
+end
+
+if opts['with-linked']
+  total = total * 2
+end
+
+if opts[:transform]  
+  puts "########################"
+  puts "#### Transforming ######"
+  puts "########################"
+  managed = "transformed"
+elsif opts[:analyze]
+  puts "########################"
+  puts "###### Analyzing #######"
+  puts "########################"
+  managed = "analyzed"
+elsif opts[:split]  
+  puts "########################"
+  puts "###### Splitting #######"
+  puts "########################"
+  managed = "splitted"
+elsif opts[:merge]
+  managed = "merged"  
+  puts "########################"
+  puts "####### Merging ########"
+  puts "########################"
+elsif opts[:filter]
+  managed = "filtered"  
+  puts "########################"
+  puts "###### Filtering #######"
+  puts "########################"
+elsif opts[:report]  
+  puts "########################"
+  puts "###### Reporting #######"
+  puts "########################"
+  managed = "checked"
+elsif opts[:validate]
+  managed = "validating"  
+  puts "########################"
+  puts "###### Validating ######"
+  puts "########################"
+else
+  managed = "parsed"
+end
+
+unless opts[:validate]
+  bar = ProgressBar.create(title: "Found", :format => "%c of %C Records #{managed}. -- %a | %B | %p%% %e".yellow, total: total, remainder_mark: '-', progress_mark: '#') unless opts[:merge]
+end
+
+if (source_file && File.exists?(source_file)) || source_files
+  #Setting runtime variables
+  if opts[:transform]
+    transform=YAML.load_file(opts[:config])
+    transform_class = transform['Class'] ? Marcxml.const_get(transform['Class']) : Marcxml::Transformator
+    Marcxml::Transformator.mapping = transform['Mapping']
+  elsif opts[:analyze]
+    resdict=Hash.new(0)
+    resdict['*MAX'] = 0
+    content_dict={}
+  elsif opts[:filter]
+    filter_class = Marcxml::Filter
+    filter_class.config = YAML.load_file(opts[:config])
+    filter_class.connected = opts['with-linked']
+    filter_class.xor = opts['with-disjunct']
+  elsif opts[:report]
+    result = Marcxml::Result.new
+  elsif opts[:split]
+    start = 0
+    ofile=File.open("#{"%06d" % start}.xml", "w")
+  elsif opts[:validate]
+    xsd = Nokogiri::XML::Schema(File.read(SCHEMA_FILE))
+    if !Nokogiri::XML(File.open(source_file) {|f| f.readline}+"<b/>").errors.empty?
+      puts Nokogiri::XML(File.open(source_file) {|f| f.readline}+"<b/>").errors
+      puts "#{source_file} is not an XML file!".red
+      exit
+    end
+    xsd.validate(source_file).each do |error|
+      puts "#{error.line} :: #{error.message}".red
+      exit
+    end
+    puts "#{source_file} is a valid MARCXML-file!".green
+    exit
+  elsif opts[:merge]
+    xmlstream = Marcxml::Xmlstream.new(ofile)
+    source_files.each do |sfile|
+      puts sfile
+      if File.exists?(sfile)
+        xmlstream.each_record(sfile) { |record|
+          xmlstream.write(record)
+        }
+      end
+    end
+    xmlstream.close
+    puts "Finished.".green
+    exit
+  end
+  
+#  non_opac = File.exist?("lib/opac/non_opac.yml") ? YAML.load_file("lib/opac/non_opac.yml") : []
+
+  #Start reading stream
+  xmlstream = Marcxml::Xmlstream.new(ofile)
+  xmlstream.header unless (opts[:analyze] || opts[:report])
+  xmlstream.each_record(source_file) do |record|
+    if opts[:transform]
+      isn = record.xpath('//marc:controlfield[@tag="001"]', NAMESPACE)[0].content rescue next
+      #if non_opac.include?(isn)
+      #  next
+      #end
+      tr = transform_class.new(record)
+      tr.execute_all
+      #FIXME Why only with muscat classes?
+      #if opts[:muscat]
+      #  tr.execute_all
+      #end
+      if tr.namespace
+        nodes = record.xpath("//marc:datafield", NAMESPACE).remove
+        xmlstream.append(record, nodes)
+      end
+    elsif opts[:filter]
+      filter = filter_class.new(record)
+      xmlstream.write(record) if filter.match?  
+    elsif opts[:report]
+      report = Marcxml::Report.new(record, result)
+      #TODO make generic with conf file
+      report.generate_from_tag(opts['with-tag'])
+    elsif opts[:split]
+      doc = Nokogiri::XML.parse(record.to_s) do |config|
+        config.noblanks
+      end
+      ofile.write(doc.remove_namespaces!.root.to_xml :encoding => 'UTF-8')
+      start+=1
+      if start % opts['with-limit'] == 0
+        ofile.write("</collection>")
+        ofile.close
+        ofile=File.open("#{"%06d" % start}.xml", "w")
+        ofile.write('<?xml version="1.0" encoding="UTF-8"?>'+"\n"+'<collection xmlns="http://www.loc.gov/MARC21/slim">'+"\n")
+      end
+    #break if start==100
+
+    elsif opts[:analyze]
+      begin
+        isn = record.xpath('//marc:controlfield[@tag="001"]', NAMESPACE)[0].content.to_i
+      rescue
+        binding.pry
+      end
+      resdict['*MAX'] = isn if isn > resdict['*MAX']
+      record.xpath('//marc:controlfield', NAMESPACE).each do |node|
+        resdict[node["tag"]]+=1
+        if opts["with-content"] && !content_dict.has_key?(node["tag"])
+          content_dict[node["tag"]]=node.content
+        end
+      end
+      record.xpath('//marc:datafield', NAMESPACE).each do |node|
+        if node.children
+          node.children.each do |sf|
+            if sf["code"]
+              resdict["#{node["tag"]}$#{sf["code"]}"]+=1
+              if opts["with-content"] && !content_dict.has_key?("#{node["tag"]}$#{sf["code"]}")
+                content_dict["#{node["tag"]}$#{sf["code"]}"]=sf.content
+              end
+            end
+          end
+        end
+      end
+    end
+    bar.increment
+  end
+  
+  if opts['with-linked']
+    individuals=(filter_class.connected_records - filter_class.result_records).uniq
+    xmlstream.each_record(source_file) do |record|
+      id=record.xpath('//marc:controlfield[@tag="001"]', NAMESPACE)[0].content 
+      if individuals.include?(id)
+        xmlstream.write(record)
+      end
+      bar.increment
+    end
+  end
+  
+
+  #Writing to outfile
+  ##TODO making writer generic
+  if opts[:analyze]
+    if opts["with-content"]
+      resdict.each do |k,v|
+      resdict[k]=v.to_s + " (#{content_dict[k]})"
+      end
+    end
+    if ofile
+      ofile.write(Hash[*(resdict.sort_by{|k,v| k}).flatten].to_yaml)
+      ofile.close
+    else
+      puts Hash[*(resdict.sort_by{|k,v| k}).flatten].to_yaml
+    end
+    puts "\nCompleted!".green
+  elsif opts[:split]
+    ofile.write("\n</collection>")
+    ofile.close
+    puts "\nCompleted: #{Time.new.strftime("%Y-%m-%d %H:%M:%S")}".green
+  elsif opts[:report]
+    puts result.to_s
+    if opts['csv']
+      result.to_csv(opts[:outfile])
+    elsif opts['xls']
+      result.to_xls :index => 0, :reverse => false, :ofile => opts[:outfile]
+    end
+    puts "\nCompleted: #{Time.new.strftime("%Y-%m-%d %H:%M:%S")}".green
+  else
+    xmlstream.close
+    puts "\nCompleted: #{Time.new.strftime("%Y-%m-%d %H:%M:%S")}".green
+  end
+else
+  puts source_file + " is not a file!".red
+end
