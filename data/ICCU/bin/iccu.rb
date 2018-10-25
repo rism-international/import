@@ -163,6 +163,10 @@ module Marcxml
         sfu['code'] = 'u'
         sfu.content = oce.content rescue ""
         tag << sfu
+        sfx = Nokogiri::XML::Node.new "subfield", node
+        sfx['code'] = 'x'
+        sfx.content = "Other"
+        tag << sfx
         sfz = Nokogiri::XML::Node.new "subfield", node
         sfz['code'] = 'z'
         sfz.content = "Original catalogue entry"
