@@ -4,5 +4,9 @@ muscat/
 *.xml.sec
 !names.xml
 !iccu_people_import.xml
+!data/Portugal/input/sources.xml
+!data/Portugal/input/RISM-final.mrc
 import_db.sql
 BNF/input/RISM_MSS.2709.5426
+data/ICCU/input/input.tar.bz2
+
