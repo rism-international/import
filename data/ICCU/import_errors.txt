@@ -1,0 +1,508 @@
+Started: 2018-12-12 09:35:18 -- Record 31666 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aScena ed Aria$aRidotto a 2e Violini Viola Violoncello Flauto e Canto
+
+
+Foreign Links: Could not add a record () in the relationship with 850631667 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "Scena ed Aria", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 54039 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$a1846. - Nota sul possessore precedente$aElisabetta Sabatucci: a c. 44r
+
+
+Foreign Links: Could not add a record () in the relationship with 850654040 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "1846. - Nota sul possessore precedente", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 77233 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$a4$apiena
+
+
+Foreign Links: Could not add a record () in the relationship with 850677234 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "4", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 160953 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aRomeo Dionesi | Nella classe del Professore$a| N.D'Arienzo | Napoli - Agosto 1882
+
+
+Foreign Links: Could not add a record () in the relationship with 850760954 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "Romeo Dionesi | Nella classe del Professore", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 161283 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aRomeo Dionesi | Nella classe del Professore$aNicola D'Arienzo | Maggio-1881
+
+
+Foreign Links: Could not add a record () in the relationship with 850761284 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "Romeo Dionesi | Nella classe del Professore", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 184620 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$adramma lirico in due atti$ascene di vita moderna
+
+
+Foreign Links: Could not add a record () in the relationship with 850784621 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "dramma lirico in due atti", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 193004 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$a(1804)$ainedito$aincompiuto
+
+
+Foreign Links: Could not add a record () in the relationship with 850793005 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "(1804)", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 194847 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aa Luigi Nono$aper Saxo ten. (anche alto), Clarinetto contrabbasso (anche basso), Violoncello e live electronics
+
+
+Foreign Links: Could not add a record () in the relationship with 850794848 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "a Luigi Nono", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 198750 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aa 3 voci$aN.o 3
+
+
+Foreign Links: Could not add a record () in the relationship with 850798751 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "a 3 voci", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 198838 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aa 3 voci$aN.o 3
+
+
+Foreign Links: Could not add a record () in the relationship with 850798839 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "a 3 voci", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 200094 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aMATTUTINO DELLE TENEBRE$aBENEDICTUS
+
+
+Foreign Links: Could not add a record () in the relationship with 850800095 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "MATTUTINO DELLE TENEBRE", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 200517 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aa 4 voci$abreve
+
+
+Foreign Links: Could not add a record () in the relationship with 850800518 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "a 4 voci", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 200885 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aa 2 voci$afacile$acon Acc. di quintetto d'archi
+
+
+Foreign Links: Could not add a record () in the relationship with 850800886 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "a 2 voci", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 201608 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aRomanza$aI Normani in Parigi
+
+
+Foreign Links: Could not add a record () in the relationship with 850801609 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "Romanza", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 202127 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aa 3 voci dispari$aMotetto di esultanza
+
+
+Foreign Links: Could not add a record () in the relationship with 850802128 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "a 3 voci dispari", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 202769 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aa symphonic rhapsody$afor 4 hands
+
+
+Foreign Links: Could not add a record () in the relationship with 850802770 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "a symphonic rhapsody", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 203068 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aPer Canto e Piccola Orchestra$a9 quadretti
+
+
+Foreign Links: Could not add a record () in the relationship with 850803069 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "Per Canto e Piccola Orchestra", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 203451 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aper flauto e arpa$a(1994)
+
+
+Foreign Links: Could not add a record () in the relationship with 850803452 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "per flauto e arpa", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 203480 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$a(dal Canzoniere del Boiardo)$aper canto e pianoforte
+
+
+Foreign Links: Could not add a record () in the relationship with 850803481 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "(dal Canzoniere del Boiardo)", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 203611 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aAtti del secondo convegno regionale ligure di medicina sociale$aGenova, 12 maggio 1957
+
+
+Foreign Links: Could not add a record () in the relationship with 850803612 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "Atti del secondo convegno regionale ligure di medi...", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 203879 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aMazurca$aOp.109
+
+
+Foreign Links: Could not add a record () in the relationship with 850803880 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "Mazurca", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 203964 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$apf$aMi bemolle maggiore
+
+
+Foreign Links: Could not add a record () in the relationship with 850803965 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "pf", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 204017 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$apf-qt$aSol maggiore
+
+
+Foreign Links: Could not add a record () in the relationship with 850804018 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "pf-qt", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 204038 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$apf$aSol maggiore
+
+
+Foreign Links: Could not add a record () in the relationship with 850804039 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "pf", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 204087 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$apf$aSol maggiore
+
+
+Foreign Links: Could not add a record () in the relationship with 850804088 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "pf", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 204091 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$apf-qt$aRe maggiore
+
+
+Foreign Links: Could not add a record () in the relationship with 850804092 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "pf-qt", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 204114 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$apf-qt$aRe maggiore
+
+
+Foreign Links: Could not add a record () in the relationship with 850804115 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "pf-qt", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 204136 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$adramma lirico in due atti$aatto 2.
+
+
+Foreign Links: Could not add a record () in the relationship with 850804137 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "dramma lirico in due atti", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 204204 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$apf-qt$aMi maggiore
+
+
+Foreign Links: Could not add a record () in the relationship with 850804205 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "pf-qt", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 205936 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$a(3 v. disp.)$aPer la Processione
+
+
+Foreign Links: Could not add a record () in the relationship with 850805937 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "(3 v. disp.)", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 205981 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$adi Claudio da Coreio$aa 4
+
+
+Foreign Links: Could not add a record () in the relationship with 850805982 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "di Claudio da Coreio", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 205990 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$adi Claudio da Coreio$ada sonar a 4 nel cimbalo
+
+
+Foreign Links: Could not add a record () in the relationship with 850805991 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "di Claudio da Coreio", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 207268 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aMarcia$aop. 127
+
+
+Foreign Links: Could not add a record () in the relationship with 850807269 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "Marcia", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 207716 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aPreghiera$aMelodia per coro di contralti con accomp. di pianoforte
+
+
+Foreign Links: Could not add a record () in the relationship with 850807717 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "Preghiera", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 208387 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aoratorio per soli, voci bianche coro e orchestra$a1.-2.-3. parte
+
+
+Foreign Links: Could not add a record () in the relationship with 850808388 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "oratorio per soli, voci bianche coro e orchestra", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 208615 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$a(per pianoforte)$a(su temi Del M.o Sabbadini Narciso)
+
+
+Foreign Links: Could not add a record () in the relationship with 850808616 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "(per pianoforte)", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 209692 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aSalve Regina$a1839
+
+
+Foreign Links: Could not add a record () in the relationship with 850809693 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "Salve Regina", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 209776 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$achitarra$an. 1, n. 5 bis, n. 10 bis, n. 12]
+
+
+Foreign Links: Could not add a record () in the relationship with 850809777 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "chitarra", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 209805 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aoperetta in 3 atti$aguida per il canto
+
+
+Foreign Links: Could not add a record () in the relationship with 850809806 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "operetta in 3 atti", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 209852 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aoperetta in 3 atti$aFantasia
+
+
+Foreign Links: Could not add a record () in the relationship with 850809853 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "operetta in 3 atti", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 210096 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aDanza dei menestrelli$amandolini
+
+
+Foreign Links: Could not add a record () in the relationship with 850810097 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "Danza dei menestrelli", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 210893 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aa tre voci$aPer Istrumenti di Fiato
+
+
+Foreign Links: Could not add a record () in the relationship with 850810894 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "a tre voci", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 210975 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aa tre voci$a[Iste confessor
+
+
+Foreign Links: Could not add a record () in the relationship with 850810976 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "a tre voci", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 211041 of 217699 processedUnknown leader 00792nds0a22002413i 450
+Started: 2018-12-12 09:35:18 -- Record 211084 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aa tre voci$aPer Processsione, delle Quarat'Ore
+
+
+Foreign Links: Could not add a record () in the relationship with 850811085 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "a tre voci", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 211176 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aspiew z towarzyszeniem fortepianu$aOp. 26
+
+
+Foreign Links: Could not add a record () in the relationship with 850811177 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "spiew z towarzyszeniem fortepianu", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 211232 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aspiew z towarzyszeniem fortepianu$aop. 28
+
+
+Foreign Links: Could not add a record () in the relationship with 850811233 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "spiew z towarzyszeniem fortepianu", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 211339 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aspiew z towarzyszeniem fortepianu$aOp. 30
+
+
+Foreign Links: Could not add a record () in the relationship with 850811340 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "spiew z towarzyszeniem fortepianu", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 211372 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aspiew z towarzyszeniem fortepianu$aOp. 23
+
+
+Foreign Links: Could not add a record () in the relationship with 850811373 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "spiew z towarzyszeniem fortepianu", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 211380 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aper orchestra$aaria nella Sonnambula
+
+
+Foreign Links: Could not add a record () in the relationship with 850811381 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "per orchestra", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 211421 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aspiew z towarzyszeniem fortepianu$aOp. 21
+
+
+Foreign Links: Could not add a record () in the relationship with 850811422 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "spiew z towarzyszeniem fortepianu", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 212700 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$amarcia sinfonica$ascritta espressamente in omaggio del commendatore Dottor Eugenio Bravi$aSalo 5 agosto 1946
+
+
+Foreign Links: Could not add a record () in the relationship with 850812701 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "marcia sinfonica", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 215016 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$a3 voci$aSettimana Santa
+
+
+Foreign Links: Could not add a record () in the relationship with 850815017 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "3 voci", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 215142 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aa più voci$aPer la Settimana Santa /del Sig:r Gio: Batt:a Bresciani
+
+
+Foreign Links: Could not add a record () in the relationship with 850815143 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "a più voci", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 215160 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$apolka$ariduzione per orchestra 25 novembre 1915
+
+
+Foreign Links: Could not add a record () in the relationship with 850815161 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "polka", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 215632 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aa tre voci$a[Settimana Santa
+
+
+Foreign Links: Could not add a record () in the relationship with 850815633 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "a tre voci", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 217589 of 217699 processed
+Marc Node Import error
+Validation failed: Name has already been taken
+While importing: =657  ##$aa 3 voci dispari$aaccomp. ad libitum
+
+
+Foreign Links: Could not add a record () in the relationship with 850817590 (Source)
+- Added records dump: [#<LiturgicalFeast id: nil, name: "a 3 voci dispari", notes: nil, wf_audit: "basic", wf_stage: "published", wf_notes: nil, wf_owner: 0, wf_version: 0, created_at: nil, updated_at: nil, lock_version: 0, alternate_terms: nil, sub_topic: nil, viaf: nil, gnd: nil>]
+Validation failed: Name has already been taken
+Started: 2018-12-12 09:35:18 -- Record 217699 of 217699 processedSubfield 700 $c missing in the marc configuration
+
+Completed: 2018-12-12 15:10:20
