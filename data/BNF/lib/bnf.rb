@@ -9,7 +9,7 @@ module Marcxml
     NAMESPACE={'marc' => "http://www.loc.gov/MARC21/slim"}
     include Logging
     @refs = {}
-    @ids = YAML.load_file("/home/dev/projects/import/BNF/id.yml")
+    @ids = YAML.load_file("/home/dev/projects/import/data/BNF/id.yml")
     @relator_codes = YAML.load_file("/home/dev/projects/marcxml-tools/lib/unimarc_relator_codes.yml")
     class << self
       attr_accessor :refs, :ids, :relator_codes
