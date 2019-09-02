@@ -26,7 +26,16 @@ module Marcxml
       @methods = [:map, :fix_id, :change_attribution, :prefix_performance,
                   :split_730, :change_243, :change_593_abbreviation, :change_009, 
                   :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, 
-                  :fix_852, :remove_pipe, :convert_keys, :convert_genres, :add_clef, :convert_scoring]
+                  :fix_852, :remove_pipe, :convert_keys, :convert_genres, :add_clef, :convert_scoring, :change_pipe]
+    end
+
+    def change_pipe
+      subfields = node.xpath("//marc:datafield[@tag='245']/marc:subfield[@code='a']", NAMESPACE)
+      subfields.each do |sf|
+        if sf.content =~ /\/\//
+          sf.content = sf.content.gsub('//', '|')
+        end
+      end
     end
 
     def convert_scoring
