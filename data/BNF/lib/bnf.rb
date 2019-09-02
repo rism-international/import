@@ -10,9 +10,14 @@ module Marcxml
     include Logging
     @refs = {}
     @ids = YAML.load_file("/home/dev/projects/import/data/BNF/id.yml")
-    @relator_codes = YAML.load_file("/home/dev/projects/marcxml-tools/lib/unimarc_relator_codes.yml")
+    @@relator_codes = YAML.load_file("utils/unimarc_relator_codes.yml")
+    @@keys = YAML.load_file("utils/keys.yml")
+    @@genre = YAML.load_file("utils/unimarc_genre.yml")
+    @@scoring = YAML.load_file("utils/scoring.yml")
+    
+    #@relator_codes = YAML.load_file("/home/dev/projects/marcxml-tools/lib/unimarc_relator_codes.yml")
     class << self
-      attr_accessor :refs, :ids, :relator_codes
+      attr_accessor :refs, :ids, :relator_codes, :keys, :genre, :scoring
     end
     attr_accessor :node, :namespace, :methods
     def initialize(node, namespace={'marc' => "http://www.loc.gov/MARC21/slim"})
@@ -21,17 +26,25 @@ module Marcxml
       @methods = [:map, :fix_id, :change_attribution, :prefix_performance,
                   :split_730, :change_243, :change_593_abbreviation, :change_009, 
                   :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, 
-                  :fix_852, :remove_pipe]
+                  :fix_852, :remove_pipe, :fix_keys]
     end
 
     def change_relator_codes
       px = node.xpath("//marc:subfield[@code='4']", NAMESPACE)
       px.each do |p|
-        p.content = BNF.relator_codes[p.content]
+        p.content = @@relator_codes[p.content]
       end
-
     end
 
+    def fix_keys
+      subfields = node.xpath("//marc:datafield[@tag='031' or @tag='240']/marc:subfield[@code='r']", NAMESPACE)
+      subfields.each do |sf| 
+        key = @@keys[sf.content.unicode_normalize]
+        if key
+          sf.content = key 
+        end
+      end
+    end
 
     def fix_id
       controlfield = node.xpath("//marc:controlfield[@tag='001']", NAMESPACE).first
