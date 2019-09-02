@@ -12,12 +12,12 @@ module Marcxml
     @ids = YAML.load_file("/home/dev/projects/import/data/BNF/id.yml")
     @@relator_codes = YAML.load_file("utils/unimarc_relator_codes.yml")
     @@keys = YAML.load_file("utils/keys.yml")
-    @@genre = YAML.load_file("utils/unimarc_genre.yml")
+    @@genres = YAML.load_file("utils/unimarc_genre.yml")
     @@scoring = YAML.load_file("utils/scoring.yml")
     
     #@relator_codes = YAML.load_file("/home/dev/projects/marcxml-tools/lib/unimarc_relator_codes.yml")
     class << self
-      attr_accessor :refs, :ids, :relator_codes, :keys, :genre, :scoring
+      attr_accessor :refs, :ids, :relator_codes, :keys, :genres, :scoring
     end
     attr_accessor :node, :namespace, :methods
     def initialize(node, namespace={'marc' => "http://www.loc.gov/MARC21/slim"})
@@ -26,7 +26,7 @@ module Marcxml
       @methods = [:map, :fix_id, :change_attribution, :prefix_performance,
                   :split_730, :change_243, :change_593_abbreviation, :change_009, 
                   :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, 
-                  :fix_852, :remove_pipe, :fix_keys]
+                  :fix_852, :remove_pipe, :convert_keys, :convert_genres]
     end
 
     def change_relator_codes
@@ -36,7 +36,7 @@ module Marcxml
       end
     end
 
-    def fix_keys
+    def convert_keys
       subfields = node.xpath("//marc:datafield[@tag='031' or @tag='240']/marc:subfield[@code='r']", NAMESPACE)
       subfields.each do |sf| 
         key = @@keys[sf.content.unicode_normalize]
@@ -45,6 +45,17 @@ module Marcxml
         end
       end
     end
+
+    def convert_genres
+      subfields = node.xpath("//marc:datafield[@tag='650' or @tag='240']/marc:subfield[@code='a']", NAMESPACE)
+      subfields.each do |sf| 
+        genre = @@genres[sf.content.unicode_normalize]
+        if genre
+          sf.content = genre
+        end
+      end
+    end
+
 
     def fix_id
       controlfield = node.xpath("//marc:controlfield[@tag='001']", NAMESPACE).first
@@ -273,6 +284,7 @@ module Marcxml
         tag << sfc
         node.root << tag
       end
+      node.xpath("//marc:datafield[@tag='852']/marc:subfield[@code='5']", NAMESPACE).remove
     end
 
     def change_243
