@@ -26,9 +26,22 @@ module Marcxml
       @methods = [:map, :fix_id, :change_attribution, :prefix_performance,
                   :split_730, :change_243, :change_593_abbreviation, :change_009, 
                   :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, 
-                  :fix_852, :remove_pipe, :convert_keys, :convert_genres]
+                  :fix_852, :remove_pipe, :convert_keys, :convert_genres, :add_clef]
     end
 
+    def add_clef
+      incipits = node.xpath("//marc:datafield[@tag='031']", NAMESPACE)
+      incipits.each do |incipit|
+        sf = incipit.xpath("marc:subfield[@code='g']", NAMESPACE).first
+        unless sf
+          sfg = Nokogiri::XML::Node.new "subfield", node
+          sfg['code'] = 'g'
+          sfg.content = "G-2"
+          incipit << sfg
+        end
+      end
+    end
+    
     def change_relator_codes
       px = node.xpath("//marc:subfield[@code='4']", NAMESPACE)
       px.each do |p|
