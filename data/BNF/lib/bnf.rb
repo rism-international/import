@@ -36,8 +36,6 @@ module Marcxml
           sf.content = sf.content.gsub(/^X/, 'x').gsub(/^B/, 'b')
         end
       end
-
-
     end
 
     def change_pipe
