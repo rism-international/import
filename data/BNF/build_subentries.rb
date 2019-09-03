@@ -57,6 +57,11 @@ if source_file
     siglum = record.xpath('//marc:datafield[@tag="930"]', NAMESPACE)[0]
     refs=record.xpath("//*[@code='9']", NAMESPACE)
     unless refs.empty?
+      incipits = record.xpath('//marc:datafield[@tag="036"]', NAMESPACE)
+      if incipits.empty?
+        lead = record.xpath('//marc:leader', NAMESPACE)[0]
+        lead.content="00000ncc a2200000   4500"
+      end
       subs = Hash.new([])
       refs.each do |ref|
         subs[ref.content] += [ref.parent]
