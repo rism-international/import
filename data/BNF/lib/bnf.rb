@@ -26,7 +26,28 @@ module Marcxml
       @methods = [:map, :fix_id, :change_attribution, :prefix_performance,
                   :split_730, :change_243, :change_593_abbreviation, :change_009, 
                   :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, 
-                  :fix_852, :remove_pipe, :convert_keys, :convert_genres, :add_clef, :convert_scoring, :change_pipe, :acc_low]
+                  :fix_852, :remove_pipe, :convert_keys, :convert_genres, :add_clef, :convert_scoring, :change_pipe, :acc_low, :change_incipit_number]
+    end
+
+    def change_incipit_number
+      subfields = node.xpath("//marc:datafield[@tag='031']", NAMESPACE)
+      subfields.each do |sf|
+        sf_a = sf.xpath("marc:subfield[@code='a']", NAMESPACE)[0]
+        sf_b = sf.xpath("marc:subfield[@code='b']", NAMESPACE)[0]
+        sf_c = sf.xpath("marc:subfield[@code='c']", NAMESPACE)[0]
+        if sf_b && !sf_a 
+          sfa = Nokogiri::XML::Node.new "subfield", node
+          sfa['code'] = 'a'
+          sfa.content = "1"
+          sf << sfa
+        end
+        if sf_b && sf_c
+          if sf_b.content == "1" and sf_c.content != "1"
+            sf_b.content = sf_c.content
+            sf_c.content = "1"
+          end
+        end
+      end
     end
 
     def acc_low
