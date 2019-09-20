@@ -26,7 +26,14 @@ module Marcxml
       @methods = [:map, :fix_id, :change_attribution, :prefix_performance,
                   :split_730, :change_243, :change_593_abbreviation, :change_009, 
                   :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, 
-                  :fix_852, :remove_pipe, :convert_keys, :convert_genres, :add_clef, :convert_scoring, :change_pipe, :acc_low, :change_incipit_number]
+                  :fix_852, :remove_pipe, :convert_keys, :convert_genres, :add_clef, :convert_scoring, :change_pipe, :acc_low, :change_incipit_number,
+                  :trim_691  ]
+    end
+
+    def trim_691
+      node.xpath("//marc:datafield[@tag='691']/marc:subfield[@code='a']", NAMESPACE).each do |sf|
+        sf.content = sf.content[0..252]
+      end
     end
 
     def change_incipit_number
