@@ -27,7 +27,7 @@ module Marcxml
                   :split_730, :change_243, :change_593_abbreviation, :change_009, 
                   :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, 
                   :fix_852, :remove_pipe, :convert_keys, :convert_genres, :add_clef, :convert_scoring, :change_pipe, :acc_low, :change_incipit_number,
-                  :trim_691, :add_040  ]
+                  :trim_691, :add_040, :add_980  ]
     end
 
     def add_040
@@ -43,6 +43,18 @@ module Marcxml
       sfz['code'] = 'b'
       sfz.content = "fre"
       tag << sfz
+      node.root << tag
+    end
+
+    def add_980
+      tag = Nokogiri::XML::Node.new "datafield", node
+      tag['tag'] = '980'
+      tag['ind1'] = ' '
+      tag['ind2'] = ' '
+      sfu = Nokogiri::XML::Node.new "subfield", node
+      sfu['code'] = 'a'
+      sfu.content = 'import'
+      tag << sfu
       node.root << tag
     end
 
