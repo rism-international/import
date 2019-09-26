@@ -55,13 +55,15 @@ if source_file
     isn = record.xpath('//marc:controlfield[@tag="001"]', NAMESPACE)[0].content rescue next
     oce = record.xpath('//marc:controlfield[@tag="003"]', NAMESPACE)[0].content rescue nil
     siglum = record.xpath('//marc:datafield[@tag="930"]', NAMESPACE)[0]
+    author = record.xpath('//marc:datafield[@tag="700"]', NAMESPACE)[0]
+    title = record.xpath('//marc:datafield[@tag="500"]', NAMESPACE)[0]
     refs=record.xpath("//*[@code='9']", NAMESPACE)
     unless refs.empty?
       incipits = record.xpath('//marc:datafield[@tag="036"]', NAMESPACE)
-      if incipits.empty?
+      #if incipits.empty?
         lead = record.xpath('//marc:leader', NAMESPACE)[0]
         lead.content="00000ncc a2200000   4500"
-      end
+      #end
       subs = Hash.new([])
       refs.each do |ref|
         subs[ref.content] += [ref.parent]
@@ -75,12 +77,12 @@ if source_file
             t["tag"] = "700"
           end
         end
+        existent_datafields = subs.values.first.map{|e| e.xpath("@tag").first.value}.flatten
+
         doc = Nokogiri::XML "<record></record>"
         leader = Nokogiri::XML::Node.new "leader", doc
         leader.content="00000ndd a2200000   4500"
         doc.root << leader
- 
-
 
         id_field = Nokogiri::XML::Node.new "controlfield", doc
         id_field['tag'] = '001'
@@ -99,7 +101,38 @@ if source_file
         doc.root << tag
       
         doc.root << siglum if siglum
-        
+        unless existent_datafields.include?("700")
+          if author
+            doc.root << author
+          else
+            tag = Nokogiri::XML::Node.new "datafield", doc
+            tag['tag'] = '700'
+            tag['ind1'] = ' '
+            tag['ind2'] = ' '
+            sfa = Nokogiri::XML::Node.new "subfield", doc
+            sfa['code'] = 'a'
+            sfa.content = "Anonymus"
+            tag << sfa
+            doc.root << tag
+          end
+        end
+ 
+        unless existent_datafields.include?("500")
+          if title
+            doc.root << title
+          else
+            tag = Nokogiri::XML::Node.new "datafield", doc
+            tag['tag'] = '500'
+            tag['ind1'] = ' '
+            tag['ind2'] = ' '
+            sfa = Nokogiri::XML::Node.new "subfield", doc
+            sfa['code'] = 'a'
+            sfa.content = "Pieces"
+            tag << sfa
+            doc.root << tag
+          end
+        end
+                
         if oce
           tag = Nokogiri::XML::Node.new "datafield", doc
           tag['tag'] = '856'
@@ -109,6 +142,10 @@ if source_file
           sfu['code'] = 'u'
           sfu.content = oce
           tag << sfu
+          sfx = Nokogiri::XML::Node.new "subfield", doc
+          sfx['code'] = 'x'
+          sfx.content = "Other"
+          tag << sfx
           sfz = Nokogiri::XML::Node.new "subfield", doc
           sfz['code'] = 'z'
           sfz.content = "Original catalogue entry"

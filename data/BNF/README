@@ -1,0 +1,3 @@
+1. STEP: Build unimarc subentries with 'build_subentries.sh'
+2. STEP: Convert to Marcxml with 'convert.sh'
+3. STEP: Import into Muscat with 'rails r housekeeping/import/import_from_marc.rb ../output/output.xml Source'

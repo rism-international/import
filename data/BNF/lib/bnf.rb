@@ -27,7 +27,42 @@ module Marcxml
                   :split_730, :change_243, :change_593_abbreviation, :change_009, 
                   :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, 
                   :fix_852, :remove_pipe, :convert_keys, :convert_genres, :add_clef, :convert_scoring, :change_pipe, :acc_low, :change_incipit_number,
-                  :trim_691, :add_040, :add_980  ]
+                  :trim_691, :add_040, :add_980, :trim_592, :add_author_or_title ]
+    end
+
+    def add_author_or_title
+      datafield_100 = node.xpath("//marc:datafield[@tag='100']", NAMESPACE)
+      if datafield_100.empty?
+        tag = Nokogiri::XML::Node.new "datafield", node
+        tag['tag'] = '100'
+        tag['ind1'] = ' '
+        tag['ind2'] = ' '
+        sfu = Nokogiri::XML::Node.new "subfield", node
+        sfu['code'] = 'a'
+        sfu.content = 'Anonymus'
+        tag << sfu
+        node.root << tag
+      end
+      datafield_240 = node.xpath("//marc:datafield[@tag='240']", NAMESPACE)
+      if datafield_240.empty?
+        tag = Nokogiri::XML::Node.new "datafield", node
+        tag['tag'] = '240'
+        tag['ind1'] = ' '
+        tag['ind2'] = ' '
+        sfu = Nokogiri::XML::Node.new "subfield", node
+        sfu['code'] = 'a'
+        sfu.content = 'Pieces'
+        tag << sfu
+        node.root << tag
+      end
+    end
+
+    def trim_592
+      node.xpath("//marc:datafield[@tag='592']/marc:subfield[@code='a']", NAMESPACE).each do |sf|
+        if sf.content =~ /Filigranes/
+          sf.content = sf.content.gsub("Filigranes : ", "")
+        end
+      end
     end
 
     def add_040
@@ -192,6 +227,10 @@ module Marcxml
         sfu['code'] = 'u'
         sfu.content = oce.content rescue ""
         tag << sfu
+        sfx = Nokogiri::XML::Node.new "subfield", node
+        sfx['code'] = 'x'
+        sfx.content = "Other"
+        tag << sfx
         sfz = Nokogiri::XML::Node.new "subfield", node
         sfz['code'] = 'z'
         sfz.content = "Original catalogue entry"
