@@ -57,6 +57,11 @@ if source_file
     siglum = record.xpath('//marc:datafield[@tag="930"]', NAMESPACE)[0]
     author = record.xpath('//marc:datafield[@tag="700"]', NAMESPACE)[0]
     title = record.xpath('//marc:datafield[@tag="500"]', NAMESPACE)[0]
+    genre = record.xpath('//marc:datafield[@tag="606"]', NAMESPACE)[0]
+    impressum = record.xpath('//marc:datafield[@tag="210"]', NAMESPACE)[0]
+    material = record.xpath('//marc:datafield[@tag="215"]', NAMESPACE)[0]
+    autograph = record.xpath('//marc:datafield[@tag="205"]', NAMESPACE)[0]
+
     refs=record.xpath("//*[@code='9']", NAMESPACE)
     unless refs.empty?
       incipits = record.xpath('//marc:datafield[@tag="036"]', NAMESPACE)
@@ -101,6 +106,13 @@ if source_file
         doc.root << tag
       
         doc.root << siglum if siglum
+        if impressum && existent_datafields.include?("210")
+          doc.root << impressum 
+        end
+        if material && existent_datafields.include?("215")
+          doc.root << material
+        end 
+        
         unless existent_datafields.include?("700")
           if author
             doc.root << author
@@ -128,6 +140,38 @@ if source_file
             sfa = Nokogiri::XML::Node.new "subfield", doc
             sfa['code'] = 'a'
             sfa.content = "Pieces"
+            tag << sfa
+            doc.root << tag
+          end
+        end
+  
+        unless existent_datafields.include?("606")
+          if genre
+            doc.root << genre
+          else
+            tag = Nokogiri::XML::Node.new "datafield", doc
+            tag['tag'] = '606'
+            tag['ind1'] = ' '
+            tag['ind2'] = ' '
+            sfa = Nokogiri::XML::Node.new "subfield", doc
+            sfa['code'] = 'a'
+            sfa.content = "Pieces"
+            tag << sfa
+            doc.root << tag
+          end
+        end
+ 
+        unless existent_datafields.include?("205")
+          if autograph
+            doc.root << autograph
+          else
+            tag = Nokogiri::XML::Node.new "datafield", doc
+            tag['tag'] = '205'
+            tag['ind1'] = ' '
+            tag['ind2'] = ' '
+            sfa = Nokogiri::XML::Node.new "subfield", doc
+            sfa['code'] = 'a'
+            sfa.content = "Manuscript copy"
             tag << sfa
             doc.root << tag
           end

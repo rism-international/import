@@ -27,9 +27,24 @@ module Marcxml
                   :split_730, :change_243, :change_593_abbreviation, :change_009, 
                   :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, 
                   :fix_852, :remove_pipe, :convert_keys, :convert_genres, :add_clef, :convert_scoring, :change_pipe, :acc_low, :change_incipit_number,
-                  :trim_691, :add_040, :add_980, :trim_592, :add_author_or_title ]
+                  :trim_691, :add_040, :add_980, :trim_592, :add_author_or_title, :add_diptit ]
     end
 
+    def add_diptit
+      datafield_245 = node.xpath("//marc:datafield[@tag='245']", NAMESPACE)
+      if datafield_245.empty?
+        tag = Nokogiri::XML::Node.new "datafield", node
+        tag['tag'] = '245'
+        tag['ind1'] = ' '
+        tag['ind2'] = ' '
+        sfu = Nokogiri::XML::Node.new "subfield", node
+        sfu['code'] = 'a'
+        sfu.content = '[without title]'
+        tag << sfu
+        node.root << tag
+      end
+    end
+    
     def add_author_or_title
       datafield_100 = node.xpath("//marc:datafield[@tag='100']", NAMESPACE)
       if datafield_100.empty?
@@ -125,7 +140,6 @@ module Marcxml
           sf << sfc
           incipit[2] = sfc
         end
-
         #puts "record at #{index + 1}: #{incipit.map{|e| e.content} }"
       end
     end
