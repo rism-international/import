@@ -101,22 +101,32 @@ module Marcxml
 
     def change_incipit_number
       subfields = node.xpath("//marc:datafield[@tag='031']", NAMESPACE)
-      subfields.each do |sf|
-        sf_a = sf.xpath("marc:subfield[@code='a']", NAMESPACE)[0]
-        sf_b = sf.xpath("marc:subfield[@code='b']", NAMESPACE)[0]
-        sf_c = sf.xpath("marc:subfield[@code='c']", NAMESPACE)[0]
-        if sf_b && !sf_a 
+      subfields.each_with_index do |sf,index|
+        incipit = [
+          sf.xpath("marc:subfield[@code='a']", NAMESPACE)[0],
+          sf.xpath("marc:subfield[@code='b']", NAMESPACE)[0],
+          sf.xpath("marc:subfield[@code='c']", NAMESPACE)[0]
+        ]
+        a,b,c = incipit
+        if b && !a
           sfa = Nokogiri::XML::Node.new "subfield", node
           sfa['code'] = 'a'
           sfa.content = "1"
           sf << sfa
+          incipit[0] = sfa
         end
-        if sf_b && sf_c
-          if sf_b.content == "1" and sf_c.content != "1"
-            sf_b.content = sf_c.content
-            sf_c.content = "1"
-          end
+        b.content = index + 1
+        if c
+          c.content = 1
+        else
+          sfc = Nokogiri::XML::Node.new "subfield", node
+          sfc['code'] = 'c'
+          sfc.content = "1"
+          sf << sfc
+          incipit[2] = sfc
         end
+
+        #puts "record at #{index + 1}: #{incipit.map{|e| e.content} }"
       end
     end
 
