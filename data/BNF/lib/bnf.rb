@@ -31,8 +31,12 @@ module Marcxml
     end
 
     def add_diptit
-      datafield_245 = node.xpath("//marc:datafield[@tag='245']", NAMESPACE)
-      if datafield_245.empty?
+      datafield_245 = node.xpath("//marc:datafield[@tag='245']", NAMESPACE)[0]
+      if datafield_245 && !datafield_245.xpath("marc:subfield[@code='a']", NAMESPACE)[0]
+        datafield_245.remove
+      end
+      datafield_245 = node.xpath("//marc:datafield[@tag='245']/marc:subfield[@code='a']", NAMESPACE)[0]
+      if !datafield_245 || datafield_245.content.strip.size == 0
         tag = Nokogiri::XML::Node.new "datafield", node
         tag['tag'] = '245'
         tag['ind1'] = ' '
