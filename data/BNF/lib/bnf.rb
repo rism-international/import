@@ -27,7 +27,17 @@ module Marcxml
                   :split_730, :change_243, :change_593_abbreviation, :change_009, 
                   :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, 
                   :fix_852, :remove_pipe, :convert_keys, :convert_genres, :add_clef, :convert_scoring, :change_pipe, :acc_low, :change_incipit_number,
-                  :trim_691, :add_040, :add_980, :trim_592, :add_author_or_title, :add_diptit ]
+                  :trim_691, :add_040, :add_980, :trim_592, :add_author_or_title, :add_diptit, :collection_anonymus ]
+    end
+
+    def collection_anonymus
+      leader=node.xpath("//marc:leader", NAMESPACE)[0]
+      if leader.content[5..7] == 'ncc'
+        datafield_100 = node.xpath("//marc:datafield[@tag='100']/marc:subfield[@code='a']", NAMESPACE)[0]
+        if datafield_100 && datafield_100.content == "Anonymus"
+          datafield_100.parent.remove
+        end
+      end
     end
 
     def add_diptit
