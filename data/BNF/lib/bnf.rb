@@ -25,9 +25,25 @@ module Marcxml
       @node = node
       @methods = [:map, :fix_id, :change_attribution, :prefix_performance,
                   :split_730, :change_243, :change_593_abbreviation, :change_009, 
-                  :concat_personal_name, :add_original_entry, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, 
+                  :concat_personal_name, :add_original_entry, :add_215e, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, 
                   :fix_852, :remove_pipe, :convert_keys, :convert_genres, :add_clef, :convert_scoring, :change_pipe, :acc_low, :change_incipit_number,
-                  :trim_691, :add_040, :add_980, :trim_592, :add_author_or_title, :add_diptit, :collection_anonymus ]
+                  :trim_691, :add_040, :add_980, :trim_592, :add_author_or_title, :add_diptit, :collection_anonymus, ]
+    end
+
+    def add_215e
+      sf_215 = node.xpath("//marc:datafield[@tag='300']/marc:subfield[@code='e']", NAMESPACE)[0]
+      if sf_215
+        tag = Nokogiri::XML::Node.new "datafield", node
+        tag['tag'] = '300'
+        tag['ind1'] = ' '
+        tag['ind2'] = ' '
+        sfu = Nokogiri::XML::Node.new "subfield", node
+        sfu['code'] = 'a'
+        sfu.content = sf_215.content
+        tag << sfu
+        node.root << tag
+        sf_215.remove
+      end
     end
 
     def collection_anonymus
