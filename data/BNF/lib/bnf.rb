@@ -77,6 +77,11 @@ module Marcxml
     
     def add_author_or_title
       datafield_100 = node.xpath("//marc:datafield[@tag='100']", NAMESPACE)
+      if datafield_100.size > 1
+        datafield_100[1..-1].each do |df|
+          df['tag'] = "700"
+        end
+      end
       if datafield_100.empty?
         tag = Nokogiri::XML::Node.new "datafield", node
         tag['tag'] = '100'

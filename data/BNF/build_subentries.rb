@@ -82,7 +82,7 @@ if source_file
             t["tag"] = "700"
           end
         end
-        existent_datafields = subs.values.first.map{|e| e.xpath("@tag").first.value}.flatten
+        existent_datafields = v.map{|e| e.xpath("@tag").first.value}.flatten
 
         doc = Nokogiri::XML "<record></record>"
         leader = Nokogiri::XML::Node.new "leader", doc
@@ -128,7 +128,7 @@ if source_file
             doc.root << tag
           end
         end
- 
+        
         unless existent_datafields.include?("500")
           if title
             doc.root << title
