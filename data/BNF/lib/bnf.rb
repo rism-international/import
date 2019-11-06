@@ -14,6 +14,7 @@ module Marcxml
     @@keys = YAML.load_file("utils/keys.yml")
     @@genres = YAML.load_file("utils/unimarc_genre.yml")
     @@scoring = YAML.load_file("utils/scoring.yml")
+    @@autograph = YAML.load_file("utils/autograph.yml")
     
     #@relator_codes = YAML.load_file("/home/dev/projects/marcxml-tools/lib/unimarc_relator_codes.yml")
     class << self
@@ -26,7 +27,7 @@ module Marcxml
       @methods = [:map, :fix_id, :change_attribution, :prefix_performance,
                   :split_730, :change_243, :change_593_abbreviation, :change_009, 
                   :concat_personal_name, :add_original_entry, :add_215e, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, 
-                  :fix_852, :remove_pipe, :convert_keys, :convert_genres, :add_clef, :convert_scoring, :change_pipe, :acc_low, :change_incipit_number,
+                  :fix_852, :remove_pipe, :convert_keys, :convert_genres, :add_clef, :convert_scoring, :convert_autograph, :change_pipe, :acc_low, :change_incipit_number,
                   :trim_691, :add_040, :add_980, :trim_592, :add_author_or_title, :add_diptit, :collection_anonymus, ]
     end
 
@@ -206,6 +207,17 @@ module Marcxml
         end
       end
     end
+
+    def convert_autograph
+      subfields = node.xpath("//marc:datafield[@tag='593']/marc:subfield[@code='a']", NAMESPACE)
+      subfields.each do |sf| 
+        autograph = @@autograph[sf.content.unicode_normalize]
+        if autograph
+          sf.content = autograph
+        end
+      end
+    end
+
 
     def add_clef
       incipits = node.xpath("//marc:datafield[@tag='031']", NAMESPACE)
