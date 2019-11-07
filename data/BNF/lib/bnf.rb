@@ -28,7 +28,16 @@ module Marcxml
                   :split_730, :change_243, :change_593_abbreviation, :change_009, 
                   :concat_personal_name, :add_original_entry, :add_215e, :add_material_layer, :fix_incipit_zeros, :change_relator_codes, 
                   :fix_852, :remove_pipe, :convert_keys, :convert_genres, :add_clef, :convert_scoring, :convert_autograph, :change_pipe, :acc_low, :change_incipit_number,
-                  :trim_691, :add_040, :add_980, :trim_592, :add_author_or_title, :add_diptit, :collection_anonymus, ]
+                  :trim_691, :add_040, :add_980, :trim_592, :add_author_or_title, :add_diptit, :collection_anonymus, :fix_timesig ]
+    end
+
+    def fix_timesig
+      sf_031o = node.xpath("//marc:datafield[@tag='031']/marc:subfield[@code='o']", NAMESPACE)
+      sf_031o.each do |sf|
+        if sf.content =~ /\/0/
+          sf.remove
+        end
+      end
     end
 
     def add_215e
