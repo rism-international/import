@@ -13,7 +13,7 @@ ofile.close()
 for record in records:
   cnt = cnt + 1
   print(cnt)
-  with open("oenb.xml", "a+") as myfile:
+  with open("oenb.xml", "a") as myfile:
     myfile.write(etree.tostring(record.xml, pretty_print=True, encoding='UTF-8') + "\n")
 
 ofile = open("oenb.xml", "a+")
