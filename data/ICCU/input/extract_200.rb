@@ -29,9 +29,9 @@ Marc.new.each_record("input.xml") do |node|
   s200f = node.xpath("//marc:datafield[@tag='200']/marc:subfield[@code='f']", NAMESPACE).map{|f| f.content}.join(";")
   s200g = node.xpath("//marc:datafield[@tag='200']/marc:subfield[@code='g']", NAMESPACE).map{|f| f.content}.join(";")
 
-  if s200f.size > 0
+#  if s200f.size > 0
     res << [rism_id, id, s200a, s200c, s200d, s200e, s200f, s200g]
-  end
+#  end
   #unless fields.empty?
   #  res << [id, fields.map{|f| f.content}.join("; ")]
   #end
