@@ -9,4 +9,6 @@ muscat/
 import_db.sql
 BNF/input/RISM_MSS.2709.5426
 data/ICCU/input/input.tar.bz2
+*.zip
+*.bz2
 
