@@ -1,6 +1,7 @@
 source 'https://rubygems.org' 
 gem 'nokogiri'
-gem 'trollop'
+#gem 'trollop'
+gem 'optimist'
 gem 'ruby-progressbar'
 gem 'rubyzip'
 gem 'zip-zip'

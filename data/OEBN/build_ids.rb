@@ -8,6 +8,7 @@ require 'rbconfig'
 require 'zip'
 require 'pry'
 require 'colorize'
+require 'csv'
 
 NAMESPACE={'marc' => "http://www.loc.gov/MARC21/slim"}
 SCHEMA_FILE="conf/MARC21slim.xsd"
@@ -47,18 +48,32 @@ bar = ProgressBar.create(title: "Found", :format => "%c of %C Records parsed. --
 result = {}
 ids = []
 
+dubl = {}
+
 if source_file
   cnt = 600100000
   #Start reading stream
   xmlstream = Marcxml::Xmlstream.new(ofile)
   xmlstream.each_record(source_file) do |record|
     isn=record.xpath("//marc:controlfield[@tag='001']", NAMESPACE).first.content
+    if dubl[isn]
+      dubl[isn] += 1
+    else
+      dubl[isn] = 1
+    end
     ids << isn
     result[isn]=cnt
     cnt += 1
     bar.increment
   end
 end 
+
+CSV.open("doubl.csv", "w") do |csv|
+  dubl.each do |k,v|
+    next if v == 1
+    csv << [k, v]
+  end
+end
 
 idfile=File.open("id.txt", "w")
 idfile.write(ids.sort.join("\r"))
