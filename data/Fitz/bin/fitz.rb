@@ -21,12 +21,40 @@ module Marcxml
     def initialize(node, namespace={'marc' => "http://www.loc.gov/MARC21/slim"})
       @namespace = namespace
       @node = node
-      @methods = [:map, 
+      @methods = [:map, :fix_852, :remove_controlfields, :move_linking 
                   #:replace_rism_siglum, :insert_773_ref, :insert_774_ref, :collection_leader, :fix_id, :add_original_entry, 
                   #:concat_personal_name, :remove_whitespace_from_incipit, :change_leader, :change_relator_codes, :add_material_layer,
                   #:add_anonymus, :update_title, :move_650_to_comments
       ]
     end
+
+    def remove_controlfields
+      node.xpath("//marc:leader", NAMESPACE).first.remove rescue nil
+      node.xpath("//marc:controlfield[@tag='001']", NAMESPACE).first.remove rescue nil
+      node.xpath("//marc:controlfield[@tag='005']", NAMESPACE).first.remove rescue nil
+      node.xpath("//marc:controlfield[@tag='008']", NAMESPACE).first.remove rescue nil
+    end
+
+    def move_linking
+      linking = node.xpath("//marc:controlfield[@tag='004']", NAMESPACE).first
+      linking["tag"] = "001"
+      #node.xpath("//marc:controlfield[@tag='004']", NAMESPACE).each do |e| e.remove rescue nil end
+    end
+
+    def fix_852
+      tag=node.xpath("//marc:datafield[@tag='852']", NAMESPACE).first
+      sfa = Nokogiri::XML::Node.new "subfield", node
+      sfa['code'] = 'a'
+      sfa.content = "GB-Cfm"
+      tag << sfa
+      tag.children.sort_by{ |node|
+        node.attr("code")
+      }.each{ |node|
+        tag.add_child(node)
+      }
+    end
+
+
 
     def update_title
       datafields=node.xpath("//marc:datafield[@tag='240']", NAMESPACE)
@@ -335,42 +363,6 @@ module Marcxml
           sfk.content = title[:arr]
           datafield << sfk
         end
-      end
-    end
-
-    def fix_852
-     tags=node.xpath("//marc:datafield[@tag='852']", NAMESPACE)
-      if tags.size >= 1
-        siglum_field = tags.first.xpath("//marc:subfield[@code='5']", NAMESPACE).first.content rescue nil
-        sigl, shelfmark = siglum_field.split(":")
- 
-        siglum = tags.first
-        if siglum.xpath("marc:subfield[@code='a']", NAMESPACE).empty?
-          sfa = Nokogiri::XML::Node.new "subfield", node
-          sfa['code'] = 'a'
-          sfa.content = convert_siglum(sigl)
-          siglum << sfa
-          sfc = Nokogiri::XML::Node.new "subfield", node
-          sfc['code'] = 'c'
-          sfc.content = shelfmark
-          siglum << sfc
-        end
-        tags[1..-1].each {|t| t.remove}
-      end
-      if tags.empty?
-        tag = Nokogiri::XML::Node.new "datafield", node
-        tag['tag'] = '852'
-        tag['ind1'] = ' '
-        tag['ind2'] = ' '
-        sfa = Nokogiri::XML::Node.new "subfield", node
-        sfa['code'] = 'a'
-        sfa.content = "F-Pn"
-        tag << sfa
-        sfc = Nokogiri::XML::Node.new "subfield", node
-        sfc['code'] = 'c'
-        sfc.content = "[without shelfmark]"
-        tag << sfc
-        node.root << tag
       end
     end
 
