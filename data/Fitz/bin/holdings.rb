@@ -5,16 +5,14 @@ require 'rbconfig'
 Dir[File.dirname(__FILE__) + '../*.rb'].each {|file| require file }
 
 module Marcxml
-  class Fitz < Transformator
+  class Holdings < Transformator
     NAMESPACE={'marc' => "http://www.loc.gov/MARC21/slim"}
     include Logging
     @refs = {}
     @@without_siglum = {}
     puts Dir.pwd
-    HOLDINGS = Nokogiri::XML(File.open("./output/holdings.xml"))
-    #@@ids = {}
     #@@isil_codes = YAML.load_file("utils/isil_codes.yml")
-    @@ids = YAML.load_file("./ids.yml")
+    #@ids = YAML.load_file("utils/ids.yml")
     #@@relator_codes = YAML.load_file("utils/unimarc_relator_codes.yml")
     class << self
       attr_accessor :refs, :ids, :relator_codes, :isil_codes, :without_siglum
@@ -23,103 +21,12 @@ module Marcxml
     def initialize(node, namespace={'marc' => "http://www.loc.gov/MARC21/slim"})
       @namespace = namespace
       @node = node
-      @methods = [# :build_numbers, 
-                  :map, :get_852, :get_773, :get_774, :fix_ids
-                  #:build_numbers,
-                  #:fix_852, :remove_controlfields, :move_linking 
+      @methods = [:map, :fix_852, :remove_controlfields, :move_linking 
                   #:replace_rism_siglum, :insert_773_ref, :insert_774_ref, :collection_leader, :fix_id, :add_original_entry, 
                   #:concat_personal_name, :remove_whitespace_from_incipit, :change_leader, :change_relator_codes, :add_material_layer,
                   #:add_anonymus, :update_title, :move_650_to_comments
       ]
     end
-
-    def fix_ids
-      id = node.xpath("//marc:controlfield[@tag='001']", NAMESPACE).first
-      old_id = id.text
-      id.content = @@ids[old_id]
-      binding.pry
-    end
-
-    def get_774
-      id = node.xpath("//marc:controlfield[@tag='001']", NAMESPACE).first.text
-      parent = HOLDINGS.root.xpath(".//marc:controlfield[@tag='001'][text()='#{id}']/..", NAMESPACE)
-      ref_ids = parent.xpath(".//marc:controlfield[@tag='004']", NAMESPACE)
-      ref_ids.each do |e|
-        tag = Nokogiri::XML::Node.new "datafield", node
-        tag['tag'] = '774'
-        tag['ind1'] = '1'
-        tag['ind2'] = ' '
-        sfw = Nokogiri::XML::Node.new "subfield", node
-        sfw['code'] = 'w'
-        binding.pry
-        sfw.content = @@ids[e.text]
-        tag << sfw
-        node.root << tag
-      end
-    end
-
-
-
-    def build_numbers
-      rism_start = 806700000
-      res = []
-      dict = {}
-      nodes = HOLDINGS.root.xpath(".//marc:controlfield[@tag='001' or @tag='004']", NAMESPACE)
-      nodes.each do |e| 
-        res << e.text
-      end
-      res.sort!
-      res.each do |e|
-        dict[e] = (rism_start += 1).to_s
-      end
-      ofile=File.open("ids.yml", "w")
-      if ofile
-        ofile.write(Hash[dict.sort].to_yaml)
-        ofile.close
-      end
-      exit
-    end
-
-    def get_852
-      id = node.xpath("//marc:controlfield[@tag='001']", NAMESPACE).first.text
-      parent = HOLDINGS.root.xpath(".//marc:controlfield[@tag='001' or @tag='004'][text()='#{id}']/..", NAMESPACE)
-      s = parent.xpath(".//marc:datafield[@tag='852']", NAMESPACE)
-      sf_a = s.xpath(".//marc:subfield[@code='a']", NAMESPACE).first.content
-      sf_c = s.xpath(".//marc:subfield[@code='c']", NAMESPACE).first.content
-      tag = Nokogiri::XML::Node.new "datafield", node
-      tag['tag'] = '852'
-      tag['ind1'] = '1'
-      tag['ind2'] = ' '
-      sfa = Nokogiri::XML::Node.new "subfield", node
-      sfa['code'] = 'a'
-      sfa.content = sf_a
-      tag << sfa
-      sfc = Nokogiri::XML::Node.new "subfield", node
-      sfc['code'] = 'c'
-      sfc.content = sf_c
-      tag << sfc
-      node.root << tag
-    end    
-    
-    def get_773
-      id = node.xpath("//marc:controlfield[@tag='001']", NAMESPACE).first.text
-      parent = HOLDINGS.root.xpath(".//marc:controlfield[@tag='004'][text()='#{id}']/..", NAMESPACE)
-      unless parent.empty?
-        collection_id = parent.xpath(".//marc:controlfield[@tag='001']", NAMESPACE).first.text
-        tag = Nokogiri::XML::Node.new "datafield", node
-        tag['tag'] = '773'
-        tag['ind1'] = '1'
-        tag['ind2'] = ' '
-        sfw = Nokogiri::XML::Node.new "subfield", node
-        sfw['code'] = 'w'
-        binding.pry
-        sfw.content = @@ids[collection_id]
-        tag << sfw
-        node.root << tag
-      end
-    end
-
-
 
     def remove_controlfields
       node.xpath("//marc:leader", NAMESPACE).first.remove rescue nil
