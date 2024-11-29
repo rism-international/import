@@ -24,7 +24,7 @@ module Marcxml
       @namespace = namespace
       @node = node
       @methods = [# :build_numbers, 
-                  :map, :get_852, :get_773, :get_774, :fix_ids
+                  :map, :get_852, :get_773, :get_774, :fix_ids, :collection_leader, :add_material_layer,
                   #:build_numbers,
                   #:fix_852, :remove_controlfields, :move_linking 
                   #:replace_rism_siglum, :insert_773_ref, :insert_774_ref, :collection_leader, :fix_id, :add_original_entry, 
@@ -33,11 +33,35 @@ module Marcxml
       ]
     end
 
+    def add_material_layer
+      layers = %w(260 300 593)
+      layers.each do |l|
+        material = node.xpath("//marc:datafield[@tag='#{l}']", NAMESPACE)
+        material.each do |block|
+          next unless block.xpath("marc:subfield[@code='8']", NAMESPACE).empty?
+          sf8 = Nokogiri::XML::Node.new "subfield", node
+          sf8['code'] = '8'
+          sf8.content = "01"
+          block << sf8
+        end
+      end
+    end
+
+    def collection_leader
+        refs = node.xpath("//marc:datafield[@tag='774']", NAMESPACE)
+        if refs.empty?
+          leader=node.xpath("//marc:leader", NAMESPACE)[0]
+          leader.content="00000ndm a2200000 u 4500"
+        else
+          leader=node.xpath("//marc:leader", NAMESPACE)[0]
+          leader.content="00000ndc a2200000   4500"
+        end
+    end
+
     def fix_ids
       id = node.xpath("//marc:controlfield[@tag='001']", NAMESPACE).first
       old_id = id.text
       id.content = @@ids[old_id]
-      binding.pry
     end
 
     def get_774
@@ -51,7 +75,6 @@ module Marcxml
         tag['ind2'] = ' '
         sfw = Nokogiri::XML::Node.new "subfield", node
         sfw['code'] = 'w'
-        binding.pry
         sfw.content = @@ids[e.text]
         tag << sfw
         node.root << tag
@@ -112,7 +135,6 @@ module Marcxml
         tag['ind2'] = ' '
         sfw = Nokogiri::XML::Node.new "subfield", node
         sfw['code'] = 'w'
-        binding.pry
         sfw.content = @@ids[collection_id]
         tag << sfw
         node.root << tag
@@ -299,17 +321,6 @@ module Marcxml
       local_id = cfield.first.content
       insert_datafield_with_subfield({tag: "035", code: "a", content: local_id})
       cfield.remove
-    end
-
-    def collection_leader
-        refs = node.xpath("//marc:datafield[@tag='464']", NAMESPACE)
-        return 0 if refs.empty?
-        leader=node.xpath("//marc:leader", NAMESPACE)[0]
-        leader.content="00000ndc a2200000   4500"
-        refs.each do |ref|
-          ref.remove
-        end
-        binding.pry
     end
 
     def insert_773_ref
