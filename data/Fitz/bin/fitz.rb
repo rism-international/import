@@ -108,6 +108,7 @@ module Marcxml
       parent = HOLDINGS.root.xpath(".//marc:controlfield[@tag='001' or @tag='004'][text()='#{id}']/..", NAMESPACE)
       s = parent.xpath(".//marc:datafield[@tag='852']", NAMESPACE)
       sf_a = s.xpath(".//marc:subfield[@code='a']", NAMESPACE).first.content
+      sf_b = s.xpath(".//marc:subfield[@code='b']", NAMESPACE).first.content
       sf_c = s.xpath(".//marc:subfield[@code='c']", NAMESPACE).first.content
       tag = Nokogiri::XML::Node.new "datafield", node
       tag['tag'] = '852'
@@ -117,6 +118,10 @@ module Marcxml
       sfa['code'] = 'a'
       sfa.content = sf_a
       tag << sfa
+      sfb = Nokogiri::XML::Node.new "subfield", node
+      sfb['code'] = 'b'
+      sfb.content = sf_b
+      tag << sfb
       sfc = Nokogiri::XML::Node.new "subfield", node
       sfc['code'] = 'c'
       sfc.content = sf_c

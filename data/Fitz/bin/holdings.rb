@@ -52,6 +52,9 @@ module Marcxml
       }.each{ |node|
         tag.add_child(node)
       }
+      b = tag.xpath("//marc:subfield[@code='b']", NAMESPACE).first
+      b.content = "Dept. of Manuscripts & Printed Book" if b.content == "FWM-MSSBB"
+      b.content = "Reference Collection" if b.content == "FWM"
     end
 
 
