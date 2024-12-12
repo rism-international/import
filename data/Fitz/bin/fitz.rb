@@ -12,6 +12,11 @@ module Marcxml
     @@without_siglum = {}
     puts Dir.pwd
     HOLDINGS = Nokogiri::XML(File.open("./output/holdings.xml"))
+    SORTING = YAML.load_file("./sorting.yml")
+    COLL = YAML.load_file("./coll.yml")
+    EXISTENT = YAML.load_file("./all_ids.yml")
+    #EXISTENT = Nokogiri::XML(File.open("./input/034-fitz-test.xml"))
+    #SORTING = Nokogiri::XML(File.open("./input/034-fitz-test.xml"))
     #@@ids = {}
     #@@isil_codes = YAML.load_file("utils/isil_codes.yml")
     @@ids = YAML.load_file("./ids.yml")
@@ -25,13 +30,51 @@ module Marcxml
       @node = node
       @methods = [# :build_numbers, 
                   :map, :get_852, :get_773, :get_774, :fix_ids, :collection_leader, :add_material_layer,
+                  #:build_all_ids,
+                  #:build_coll,
                   #:build_numbers,
+                  #:build_sorting,
                   #:fix_852, :remove_controlfields, :move_linking 
                   #:replace_rism_siglum, :insert_773_ref, :insert_774_ref, :collection_leader, :fix_id, :add_original_entry, 
                   #:concat_personal_name, :remove_whitespace_from_incipit, :change_leader, :change_relator_codes, :add_material_layer,
                   #:add_anonymus, :update_title, :move_650_to_comments
       ]
     end
+
+    def build_all_ids
+      res = []  
+      ids = EXISTENT.xpath(".//marc:controlfield[@tag='001']", NAMESPACE)
+      ids.each do |id|
+        res << id.content 
+      end
+      binding.pry
+      ofile=File.open("all_ids.yml", "w")
+      if ofile
+        ofile.write(res.to_yaml)
+        ofile.close
+      end
+      exit
+    end
+
+    def get_coll(id)
+      res = []
+      shelf = COLL[id]
+      coll = COLL.select{|key, hash| hash==shelf }
+      coll.each do |k,v|
+        res << {k => SORTING[k]}
+      end
+      return res.sort {|a,b| a.values.to_s <=> b.values.to_s}# rescue binding.pry
+    end
+
+    def get_main_entry(id)
+      m = get_coll(id)
+      if !m || m.empty? || m.size <= 2
+        return nil
+      else
+        return m.first.keys.first
+      end
+    end
+
 
     def add_material_layer
       layers = %w(260 300 593)
@@ -60,25 +103,81 @@ module Marcxml
 
     def fix_ids
       id = node.xpath("//marc:controlfield[@tag='001']", NAMESPACE).first
+      binding.pry if id =~ /5084/
       old_id = id.text
       id.content = @@ids[old_id]
     end
 
     def get_774
+      #res = {}
       id = node.xpath("//marc:controlfield[@tag='001']", NAMESPACE).first.text
-      parent = HOLDINGS.root.xpath(".//marc:controlfield[@tag='001'][text()='#{id}']/..", NAMESPACE)
-      ref_ids = parent.xpath(".//marc:controlfield[@tag='004']", NAMESPACE)
-      ref_ids.each do |e|
-        tag = Nokogiri::XML::Node.new "datafield", node
-        tag['tag'] = '774'
-        tag['ind1'] = '1'
-        tag['ind2'] = ' '
-        sfw = Nokogiri::XML::Node.new "subfield", node
-        sfw['code'] = 'w'
-        sfw.content = @@ids[e.text]
-        tag << sfw
-        node.root << tag
+      coll = get_coll(id)
+      main_entry = get_main_entry(id)
+      
+      #parent = HOLDINGS.root.xpath(".//marc:controlfield[@tag='001'][text()='#{id}']/..", NAMESPACE)
+      #ref_ids = parent.xpath(".//marc:controlfield[@tag='004']", NAMESPACE)
+      #ref_ids.each do |r|
+      #  res[r.content] = SORTING[r.content]
+      #end
+      #binding.pry if id =~ /421207/
+      return unless SORTING[id]
+      return if !EXISTENT.include?(id)
+      #binding.pry if id =~ /66938/
+      if main_entry == id && coll.size > 1
+        coll.each do |e|
+          next if !EXISTENT.include?(e.keys.first)
+          next if e.keys.first == id
+          tag = Nokogiri::XML::Node.new "datafield", node
+          tag['tag'] = '774'
+          tag['ind1'] = '1'
+          tag['ind2'] = ' '
+          sfw = Nokogiri::XML::Node.new "subfield", node
+          sfw['code'] = 'w'
+          sfw.content = @@ids[e.keys.first]
+          tag << sfw
+          node.root << tag
+        end
       end
+    end
+
+    def build_coll
+      res = []
+      records = HOLDINGS.root.xpath(".//marc:record", NAMESPACE)
+      records.each do |record|
+        ids = record.xpath(".//marc:controlfield", NAMESPACE)
+        ids.each do |id|
+          shelf = record.xpath(".//marc:datafield[@tag='852']/marc:subfield[@code='c']", NAMESPACE).first.content rescue nil
+          if shelf
+            res << {id.content => shelf}
+          end
+        end
+        binding.pry
+      end
+      ofile=File.open("coll.yml", "w")
+      if ofile
+        ofile.write(res.to_yaml)
+        ofile.close
+      end
+      exit
+    end
+
+
+    def build_sorting
+      res = []
+      records = SORTING.root.xpath(".//marc:record", NAMESPACE)
+      records.each do |record|
+        id = record.xpath(".//marc:controlfield[@tag='001']", NAMESPACE).first.content
+        page = record.xpath(".//marc:datafield[@tag='830']/marc:subfield[@code='v']", NAMESPACE).first.content rescue nil
+        if page
+          res << {id => page}
+        end
+      end
+      ofile=File.open("sorting.yml", "w")
+      if ofile
+        ofile.write(res.to_yaml)
+        ofile.close
+      end
+      exit
     end
 
 
@@ -131,16 +230,19 @@ module Marcxml
     
     def get_773
       id = node.xpath("//marc:controlfield[@tag='001']", NAMESPACE).first.text
-      parent = HOLDINGS.root.xpath(".//marc:controlfield[@tag='004'][text()='#{id}']/..", NAMESPACE)
-      unless parent.empty?
-        collection_id = parent.xpath(".//marc:controlfield[@tag='001']", NAMESPACE).first.text
+      parent = get_main_entry(id)
+      return if id == parent || !parent
+      return unless SORTING[id]
+      #parent = HOLDINGS.root.xpath(".//marc:controlfield[@tag='004'][text()='#{id}']/..", NAMESPACE)
+      if parent
+        #collection_id = parent.xpath(".//marc:controlfield[@tag='001']", NAMESPACE).first.text
         tag = Nokogiri::XML::Node.new "datafield", node
         tag['tag'] = '773'
         tag['ind1'] = '1'
         tag['ind2'] = ' '
         sfw = Nokogiri::XML::Node.new "subfield", node
         sfw['code'] = 'w'
-        sfw.content = @@ids[collection_id]
+        sfw.content = @@ids[parent]
         tag << sfw
         node.root << tag
       end
